@@ -1721,4 +1721,12 @@ class Invoice
 
         return $this;
     }
+
+    /**
+     * @JMS\PreSerialize()
+     */
+    protected function preSerializer()
+    {
+        $this->dueDate = $this->dueDate->format('Y-m-d H:i:s');
+    }
 }
