@@ -1,0 +1,6 @@
+{
+  "SERVICE": "coupon.get",
+  "FILTER": {
+    "CODE": "424258989"
+  }
+}

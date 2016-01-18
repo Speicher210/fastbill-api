@@ -1,0 +1,11 @@
+{
+  "REQUEST": {
+    "SERVICE": "subscription.getusagedata",
+    "FILTER": {
+      "SUBSCRIPTION_ID": "503772"
+    }
+  },
+  "RESPONSE": {
+    "ITEMS": []
+  }
+}

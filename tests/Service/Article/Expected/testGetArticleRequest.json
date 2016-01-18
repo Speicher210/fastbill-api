@@ -1,0 +1,6 @@
+{
+  "SERVICE": "article.get",
+  "FILTER": {
+    "ARTICLE_NUMBER": "666"
+  }
+}

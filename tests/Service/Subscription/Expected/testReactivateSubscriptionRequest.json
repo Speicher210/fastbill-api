@@ -1,0 +1,6 @@
+{
+  "SERVICE": "subscription.reactivate",
+  "FILTER": {
+    "SUBSCRIPTION_ID": 501982
+  }
+}

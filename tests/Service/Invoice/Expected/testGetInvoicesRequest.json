@@ -1,0 +1,4 @@
+{
+  "SERVICE": "invoice.get",
+  "FILTER": {}
+}

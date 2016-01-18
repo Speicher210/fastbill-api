@@ -1,0 +1,11 @@
+{
+  "REQUEST": {
+    "SERVICE": "coupon.check",
+    "DATA": {
+      "CODE": "424258989"
+    }
+  },
+  "RESPONSE": {
+    "STATUS": "invalid"
+  }
+}

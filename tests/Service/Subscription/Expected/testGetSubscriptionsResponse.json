@@ -1,0 +1,14 @@
+{
+  "REQUEST": {
+    "SERVICE": "subscription.get"
+  },
+  "RESPONSE": {
+    "SUBSCRIPTIONS": [
+      {
+        "SUBSCRIPTION_ID": 501982,
+        "CUSTOMER_ID": 995443,
+        "SUBSCRIPTION_TITLE": "title"
+      }
+    ]
+  }
+}
