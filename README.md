@@ -1,4 +1,4 @@
-# Fastbill API
+# Fastbill Automatic API
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
