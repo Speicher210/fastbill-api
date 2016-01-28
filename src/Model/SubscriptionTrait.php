@@ -51,7 +51,7 @@ trait SubscriptionTrait
     protected $subscriptionStart;
 
     /**
-     *  The subscription next event.
+     * The subscription next event.
      *
      * @var \DateTime
      *
@@ -61,11 +61,11 @@ trait SubscriptionTrait
     protected $nextEvent;
 
     /**
-     *  The subscription cancellation date.
+     * The subscription cancellation date.
      *
      * @var \DateTime
      *
-     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'UTC'>")
+     * @JMS\Type("string")
      * @JMS\SerializedName("CANCELLATION_DATE")
      */
     protected $cancellationDate;
