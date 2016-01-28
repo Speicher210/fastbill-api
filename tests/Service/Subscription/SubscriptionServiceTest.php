@@ -52,7 +52,7 @@ class SubscriptionServiceTest extends AbstractServiceTest
         /** @var SubscriptionService $subscriptionService */
         $subscriptionService = $this->getServiceToTest();
 
-        $data = new GetRequestData();;
+        $data = new GetRequestData();
         $apiResponse = $subscriptionService->getSubscriptions($data->getCustomerId(), $data->getExternalCustomerId(),
             $data->getSubscriptionExternalId(), $data->getSubscriptionId());
 
@@ -65,6 +65,29 @@ class SubscriptionServiceTest extends AbstractServiceTest
         $expectedSubscription->setSubscriptionId(501982);
         $expectedSubscription->setCustomerId(995443);
         $expectedSubscription->setSubscriptionTitle('title');
+        $expectedSubscription->setCancellationDate(new \DateTime('2016-01-28 16:56:22'));
+        $this->assertEquals(array($expectedSubscription), $response->getSubscriptions());
+    }
+
+    public function testGetSubscriptionsWithoutCancellationDate()
+    {
+        /** @var SubscriptionService $subscriptionService */
+        $subscriptionService = $this->getServiceToTest();
+
+        $data = new GetRequestData();
+        $apiResponse = $subscriptionService->getSubscriptions($data->getCustomerId(), $data->getExternalCustomerId(),
+            $data->getSubscriptionExternalId(), $data->getSubscriptionId());
+
+        $this->assertInstanceOf(GetApiResponse::class, $apiResponse);
+        /** @var GetResponse $response */
+        $response = $apiResponse->getResponse();
+        $this->assertFalse($response->hasErrors());
+
+        $expectedSubscription = new Subscription();
+        $expectedSubscription->setSubscriptionId(501982);
+        $expectedSubscription->setCustomerId(995443);
+        $expectedSubscription->setSubscriptionTitle('title');
+
         $this->assertEquals(array($expectedSubscription), $response->getSubscriptions());
     }
 

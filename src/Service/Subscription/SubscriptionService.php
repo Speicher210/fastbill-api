@@ -25,7 +25,8 @@ class SubscriptionService extends AbstractService
         $externalCustomerId = null,
         $subscriptionExternalId = null,
         $subscriptionId = null
-    ) {
+    )
+    {
         $requestData = new Get\RequestData();
         $requestData->setCustomerId($customerId);
         $requestData->setExternalCustomerId($externalCustomerId);
@@ -33,8 +34,20 @@ class SubscriptionService extends AbstractService
         $requestData->setSubscriptionId($subscriptionId);
 
         $request = new Get\Request($requestData);
+        $apiResponse = $this->sendRequest($request, Get\ApiResponse::class);
 
-        return $this->sendRequest($request, Get\ApiResponse::class);
+        /** @var Get\Response $response */
+        $response = $apiResponse->getResponse();
+        foreach ($response->getSubscriptions() as $subscription) {
+            $cancellationDate = $subscription->getCancellationDate();
+            if ($cancellationDate === '0000-00-00 00:00:00') {
+                $subscription->setCancellationDate(null);
+            } else {
+                $subscription->setCancellationDate(new \DateTime($cancellationDate));
+            }
+        }
+
+        return $apiResponse;
     }
 
     /**
@@ -68,7 +81,8 @@ class SubscriptionService extends AbstractService
         $status = null,
         array $xAttributes = array(),
         array $features = array()
-    ) {
+    )
+    {
         $requestData = new Update\RequestData($subscriptionId);
 
         $requestData->setSubscriptionId($subscriptionId);
@@ -134,7 +148,8 @@ class SubscriptionService extends AbstractService
         $subscriptionId,
         \DateTime $subscriptionStart = null,
         \DateTime $subscriptionEnd = null
-    ) {
+    )
+    {
         $requestData = new GetUsageData\RequestData($subscriptionId);
 
         $requestData->setSubscriptionId($subscriptionId);

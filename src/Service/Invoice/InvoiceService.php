@@ -39,6 +39,5 @@ class InvoiceService extends AbstractService
         }
 
         return $apiResponse;
-
     }
 }
