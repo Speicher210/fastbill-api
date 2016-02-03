@@ -1,0 +1,16 @@
+{
+  "REQUEST": {
+    "SERVICE": "customer.get"
+  },
+  "RESPONSE": {
+    "CUSTOMERS": [
+      {
+        "CUSTOMER_ID": "995443",
+        "CREATED": "",
+        "BANK_ACCOUNT_MANDATE_REFERENCE_DATE": "",
+        "BIRTHDAY": "",
+        "LASTUPDATE": ""
+      }
+    ]
+  }
+}

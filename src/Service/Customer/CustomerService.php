@@ -25,7 +25,9 @@ class CustomerService extends AbstractService
         /** @var Get\Response $response */
         $response = $apiResponse->getResponse();
         foreach ($response->getCustomers() as $customer) {
-            $customer->getBirthday()->setTime(0, 0, 0);
+            if ($customer->getBirthday() instanceof \DateTime) {
+                $customer->getBirthday()->setTime(0, 0, 0);
+            }
         }
 
         return $apiResponse;

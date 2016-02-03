@@ -2,10 +2,11 @@
 
 namespace Speicher210\Fastbill\Test\Api\Service;
 
+use Doctrine\Common\Annotations\AnnotationRegistry;
 use JMS\Serializer\SerializerBuilder;
+use Speicher210\Fastbill\Api\Serializer\Handler\DateHandler;
 use Speicher210\Fastbill\Api\ServiceInterface;
 use Speicher210\Fastbill\Api\Transport\TransportInterface;
-use Doctrine\Common\Annotations\AnnotationRegistry;
 
 /**
  * Abstract class to test Fastbill services.
@@ -26,7 +27,7 @@ abstract class AbstractServiceTest extends \PHPUnit_Framework_TestCase
     public static function setUpBeforeClass()
     {
         if (self::$serializerTempDirectory === null) {
-            self::$serializerTempDirectory = sys_get_temp_dir() . '/' . uniqid('sp210_fastbill_api_test', true);
+            self::$serializerTempDirectory = sys_get_temp_dir().'/'.uniqid('sp210_fastbill_api_test', true);
         }
     }
 
@@ -46,11 +47,11 @@ abstract class AbstractServiceTest extends \PHPUnit_Framework_TestCase
     {
         $reflection = new \ReflectionObject($this);
 
-        $fixturesDirectory = dirname($reflection->getFileName()) . '/Expected/';
+        $fixturesDirectory = dirname($reflection->getFileName()).'/Expected/';
 
-        $transportRequest = file_get_contents($fixturesDirectory . $this->getName() . 'Request.json');
+        $transportRequest = file_get_contents($fixturesDirectory.$this->getName().'Request.json');
         $transportRequest = json_encode(json_decode($transportRequest));
-        $transportResponse = file_get_contents($fixturesDirectory . $this->getName() . 'Response.json');
+        $transportResponse = file_get_contents($fixturesDirectory.$this->getName().'Response.json');
 
         $transportMock = $this->getMock(TransportInterface::class);
         $transportMock
@@ -63,6 +64,11 @@ abstract class AbstractServiceTest extends \PHPUnit_Framework_TestCase
 
         $serializer = SerializerBuilder::create()
             ->setCacheDir(self::$serializerTempDirectory)
+            ->configureHandlers(
+                function (\JMS\Serializer\Handler\HandlerRegistry $registry) {
+                    $registry->registerSubscribingHandler(new DateHandler());
+                }
+            )
             ->build();
 
         $class = $this->getClassUnderTest();

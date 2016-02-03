@@ -48,6 +48,25 @@ class CustomerServiceTest extends AbstractServiceTest
         $this->assertEquals(array($expectedCustomer), $response->getCustomers());
     }
 
+    public function testGetCustomerWithDateFieldsEmptyString()
+    {
+        /** @var CustomerService $customerService */
+        $customerService = $this->getServiceToTest();
+
+        $data = new GetRequestData();
+        $data->setCustomerId(995443);
+        $apiResponse = $customerService->getCustomers($data);
+
+        $this->assertInstanceOf(GetApiResponse::class, $apiResponse);
+        /** @var GetResponse $response */
+        $response = $apiResponse->getResponse();
+        $this->assertFalse($response->hasErrors());
+
+        $expectedCustomer = new Customer();
+        $expectedCustomer->setCustomerId(995443);
+        $this->assertEquals(array($expectedCustomer), $response->getCustomers());
+    }
+
     public function testCreateCustomer()
     {
         /** @var CustomerService $customerService */
