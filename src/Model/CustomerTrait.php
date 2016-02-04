@@ -1173,6 +1173,16 @@ trait CustomerTrait
     }
 
     /**
+     * Get the full name of the customer.
+     *
+     * @return string
+     */
+    public function getFullName()
+    {
+        return implode(' ', array($this->firstName, $this->lastName));
+    }
+
+    /**
      * Get the address.
      *
      * @return string

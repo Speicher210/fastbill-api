@@ -8,4 +8,6 @@ namespace Speicher210\Fastbill\Api\Model;
 class Subscription
 {
     use SubscriptionTrait;
+
+    const SUBSCRIPTION_STATUS_ACTIVE = 'active';
 }

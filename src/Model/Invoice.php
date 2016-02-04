@@ -25,6 +25,10 @@ class Invoice
     const INVOICE_PAYMENT_TYPE_ADVANCED_PAYMENT = 5;
     const INVOICE_PAYMENT_TYPE_CREDIT_CARD = 6;
 
+    const INVOICE_STATUS_OVERDUE = 'overdue';
+    const INVOICE_STATUS_PAID = 'paid';
+    const INVOICE_STATUS_UNPAID = 'unpaid';
+
     /**
      * The invoice id.
      *
