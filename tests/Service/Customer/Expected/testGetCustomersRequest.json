@@ -1,6 +1,7 @@
 {
   "SERVICE": "customer.get",
   "FILTER": {
+    "LIMIT": 100,
     "CUSTOMER_ID": 995443
   }
 }

@@ -1,6 +1,7 @@
 {
   "SERVICE": "subscription.deleteusagedata",
   "DATA": {
+    "LIMIT": 100,
     "USAGEDATA_ID": "223789"
   }
 }

@@ -18,7 +18,7 @@ abstract class AbstractRequestData implements RequestDataInterface
      * @JMS\Type("integer")
      * @JMS\SerializedName("LIMIT")
      */
-    protected $limit;
+    protected $limit = 100;
 
     /**
      * The offset for the request.

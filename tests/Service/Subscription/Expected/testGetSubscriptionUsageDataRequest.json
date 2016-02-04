@@ -1,6 +1,7 @@
 {
   "SERVICE": "subscription.getusagedata",
   "FILTER": {
+    "LIMIT": 100,
     "SUBSCRIPTION_ID": 503772,
     "START": "2015-10-21 00:00:00",
     "END": "2015-11-29 00:00:00"

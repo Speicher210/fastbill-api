@@ -1,6 +1,7 @@
 {
   "SERVICE": "customer.update",
   "DATA": {
+    "LIMIT": 100,
     "CUSTOMER_ID": 995443,
     "CUSTOMER_EXT_UID": "333",
     "CUSTOMER_NUMBER": 16,

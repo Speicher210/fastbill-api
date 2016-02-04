@@ -1,7 +1,11 @@
 {
   "REQUEST": {
     "SERVICE": "article.get",
-    "FILTER": []
+    "FILTER": [
+      {
+        "LIMIT": 100
+      }
+    ]
   },
   "RESPONSE": {
     "ARTICLES": [

@@ -1,4 +1,6 @@
 {
   "SERVICE": "invoice.get",
-  "FILTER": {}
+  "FILTER": {
+    "LIMIT": 100
+  }
 }

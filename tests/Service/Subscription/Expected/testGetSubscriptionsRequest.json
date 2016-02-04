@@ -1,4 +1,6 @@
 {
   "SERVICE": "subscription.get",
-  "FILTER": {}
+  "FILTER": {
+    "LIMIT": 100
+  }
 }

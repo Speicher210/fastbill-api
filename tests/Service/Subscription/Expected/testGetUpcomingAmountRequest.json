@@ -1,6 +1,7 @@
 {
   "SERVICE": "subscription.getupcomingamount",
   "DATA": {
+    "LIMIT": 100,
     "ARTICLE_NUMBER": "A123",
     "COUPON": "COUPON",
     "COUNTRY_CODE": "DE",

@@ -2,6 +2,7 @@
   "REQUEST": {
     "SERVICE": "subscription.getusagedata",
     "FILTER": {
+      "LIMIT": 100,
       "SUBSCRIPTION_ID": "503772"
     }
   },

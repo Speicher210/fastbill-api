@@ -1,6 +1,7 @@
 {
   "SERVICE": "subscription.postpone",
   "DATA": {
+    "LIMIT": 100,
     "SUBSCRIPTION_ID": 501982,
     "MONTH": "06"
   }

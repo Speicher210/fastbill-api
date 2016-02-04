@@ -6,6 +6,9 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## [Unreleased]
 
+### Changed
+- RequestsData for services now have a default limit of 100.
+
 ### Added
 - Added constants and helper methods for models.
 
