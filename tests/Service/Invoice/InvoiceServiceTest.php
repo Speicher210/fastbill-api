@@ -28,7 +28,6 @@ class InvoiceServiceTest extends AbstractServiceTest
         $this->assertInstanceOf(GetApiResponse::class, $apiResponse);
         /** @var GetResponse $response */
         $response = $apiResponse->getResponse();
-        $this->assertFalse($response->hasErrors());
 
         $expectedInvoice = $this->getExpectedInvoice();
 
@@ -46,7 +45,6 @@ class InvoiceServiceTest extends AbstractServiceTest
         $this->assertInstanceOf(GetApiResponse::class, $apiResponse);
         /** @var GetResponse $response */
         $response = $apiResponse->getResponse();
-        $this->assertFalse($response->hasErrors());
 
         $expectedInvoice = $this->getExpectedInvoice();
         $expectedInvoice->setDueDate(new \DateTime('2015-11-04'));

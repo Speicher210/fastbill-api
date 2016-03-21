@@ -59,7 +59,6 @@ class SubscriptionServiceTest extends AbstractServiceTest
         $this->assertInstanceOf(GetApiResponse::class, $apiResponse);
         /** @var GetResponse $response */
         $response = $apiResponse->getResponse();
-        $this->assertFalse($response->hasErrors());
 
         $expectedSubscription = new Subscription();
         $expectedSubscription->setSubscriptionId(501982);
@@ -81,7 +80,6 @@ class SubscriptionServiceTest extends AbstractServiceTest
         $this->assertInstanceOf(GetApiResponse::class, $apiResponse);
         /** @var GetResponse $response */
         $response = $apiResponse->getResponse();
-        $this->assertFalse($response->hasErrors());
 
         $expectedSubscription = new Subscription();
         $expectedSubscription->setSubscriptionId(501982);
@@ -102,7 +100,6 @@ class SubscriptionServiceTest extends AbstractServiceTest
         $this->assertInstanceOf(CreateApiResponse::class, $apiResponse);
         /** @var CreateResponse $response */
         $response = $apiResponse->getResponse();
-        $this->assertFalse($response->hasErrors());
 
         $expectedCreateResponse = new CreateResponse();
         $expectedCreateResponse->setSubscriptionId(503772);
@@ -123,7 +120,6 @@ class SubscriptionServiceTest extends AbstractServiceTest
         $this->assertInstanceOf(UpdateApiResponse::class, $apiResponse);
         /** @var UpdateResponse $response */
         $response = $apiResponse->getResponse();
-        $this->assertFalse($response->hasErrors());
 
         $expectedUpdateResponse = new UpdateResponse();
         $expectedUpdateResponse->setStatus('success');
@@ -141,7 +137,6 @@ class SubscriptionServiceTest extends AbstractServiceTest
         $this->assertInstanceOf(ChangeArticleApiResponse::class, $apiResponse);
         /** @var ChangeArticleResponse $response */
         $response = $apiResponse->getResponse();
-        $this->assertFalse($response->hasErrors());
 
         $expectedChangeArticleResponse = new ChangeArticleResponse();
         $expectedChangeArticleResponse->setStatus('success');
@@ -161,7 +156,6 @@ class SubscriptionServiceTest extends AbstractServiceTest
         $this->assertInstanceOf(SetAddonApiResponse::class, $apiResponse);
         /** @var SetAddonResponse $response */
         $response = $apiResponse->getResponse();
-        $this->assertFalse($response->hasErrors());
 
         $expectedSetSubscriptionAddonResponse = new SetAddonResponse();
         $expectedSetSubscriptionAddonResponse->setStatus('success');
@@ -181,7 +175,6 @@ class SubscriptionServiceTest extends AbstractServiceTest
         $this->assertInstanceOf(SetUsageDataApiResponse::class, $apiResponse);
         /** @var SetUsageDataResponse $response */
         $response = $apiResponse->getResponse();
-        $this->assertFalse($response->hasErrors());
 
         $expectedSetUsageDataResponse = new SetUsageDataResponse();
         $expectedSetUsageDataResponse->setStatus('success');
@@ -203,7 +196,6 @@ class SubscriptionServiceTest extends AbstractServiceTest
         $this->assertInstanceOf(GetUsageDataApiResponse::class, $apiResponse);
         /** @var GetUsageDataResponse $response */
         $response = $apiResponse->getResponse();
-        $this->assertFalse($response->hasErrors());
 
         $expectedGetUsageDataResponse = new GetUsageDataResponse();
 
@@ -221,7 +213,6 @@ class SubscriptionServiceTest extends AbstractServiceTest
         $this->assertInstanceOf(DeleteUsageDataApiResponse::class, $apiResponse);
         /** @var DeleteUsageDataResponse $response */
         $response = $apiResponse->getResponse();
-        $this->assertFalse($response->hasErrors());
 
         $expectedDeleteUsageDataResponse = new DeleteUsageDataResponse();
         $expectedDeleteUsageDataResponse->setStatus('success');
@@ -242,7 +233,6 @@ class SubscriptionServiceTest extends AbstractServiceTest
 
         /** @var PostponeResponse $response */
         $response = $apiResponse->getResponse();
-        $this->assertFalse($response->hasErrors());
 
         $expectedGetUpcomingAmountResponse = new GetUpcomingAmountResponse();
         $expectedGetUpcomingAmountResponse->setTotal(125);
@@ -259,7 +249,6 @@ class SubscriptionServiceTest extends AbstractServiceTest
 
         /** @var PostponeResponse $response */
         $response = $apiResponse->getResponse();
-        $this->assertFalse($response->hasErrors());
 
         $expectedPostponeResponse = new PostponeResponse();
         $expectedPostponeResponse->setStatus('success');
@@ -276,7 +265,6 @@ class SubscriptionServiceTest extends AbstractServiceTest
 
         /** @var RenewResponse $response */
         $response = $apiResponse->getResponse();
-        $this->assertFalse($response->hasErrors());
 
         $expectedRenewResponse = new RenewResponse();
         $expectedRenewResponse->setStatus('success');
@@ -293,7 +281,6 @@ class SubscriptionServiceTest extends AbstractServiceTest
 
         /** @var CreateSecureLinkResponse $response */
         $response = $apiResponse->getResponse();
-        $this->assertFalse($response->hasErrors());
 
         $expectedCreateSecureLinkResponse = new CreateSecureLinkResponse();
         $expectedCreateSecureLinkResponse->setAddonsUrl('https://test.com/addon');
@@ -313,7 +300,6 @@ class SubscriptionServiceTest extends AbstractServiceTest
 
         /** @var CancelResponse $response */
         $response = $apiResponse->getResponse();
-        $this->assertFalse($response->hasErrors());
 
         $expectedCancelResponse = new CancelResponse();
         $expectedCancelResponse->setStatus('success');

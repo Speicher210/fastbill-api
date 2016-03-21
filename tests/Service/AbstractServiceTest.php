@@ -4,7 +4,12 @@ namespace Speicher210\Fastbill\Test\Api\Service;
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use JMS\Serializer\SerializerBuilder;
+use JMS\Serializer\SerializerInterface;
 use Speicher210\Fastbill\Api\ApiCredentials;
+use Speicher210\Fastbill\Api\ApiResponseInterface;
+use Speicher210\Fastbill\Api\Exception\ApiResponseException;
+use Speicher210\Fastbill\Api\RequestInterface;
+use Speicher210\Fastbill\Api\ResponseInterface;
 use Speicher210\Fastbill\Api\Serializer\Handler\DateHandler;
 use Speicher210\Fastbill\Api\ServiceInterface;
 use Speicher210\Fastbill\Api\Transport\TransportInterface;
@@ -30,6 +35,48 @@ abstract class AbstractServiceTest extends \PHPUnit_Framework_TestCase
         if (self::$serializerTempDirectory === null) {
             self::$serializerTempDirectory = sys_get_temp_dir().'/'.uniqid('sp210_fastbill_api_test', true);
         }
+    }
+
+    public function testServiceThrowsExceptionsIfApiResponseHasErrors()
+    {
+        $class = $this->getClassUnderTest();
+
+        $responseMock = $this->getMock(ResponseInterface::class);
+        $responseMock
+            ->expects($this->once())
+            ->method('hasErrors')
+            ->willReturn(true);
+        $responseMock
+            ->expects($this->once())
+            ->method('getErrors')
+            ->willReturn(array());
+        $apiResponseMock = $this->getMock(ApiResponseInterface::class);
+        $apiResponseMock
+            ->expects($this->exactly(3))
+            ->method('getResponse')
+            ->willReturn($responseMock);
+        $transportMock = $this->getMock(TransportInterface::class);
+        $serializerMock = $this->getMock(SerializerInterface::class);
+        $serializerMock
+            ->expects($this->once())
+            ->method('deserialize')
+            ->willReturn($apiResponseMock);
+
+        $service = new $class($transportMock, $serializerMock);
+
+        $requestMock = $this->getMock(RequestInterface::class);
+        $requestMock
+            ->expects($this->once())
+            ->method('getService')
+            ->willReturn('test.service');
+        $responseClass = $this->getMock(ApiResponseInterface::class);
+
+        $method = new \ReflectionMethod(get_class($service), 'sendRequest');
+        $method->setAccessible(true);
+
+        $this->setExpectedException(ApiResponseException::class, 'Error calling "test.service"');
+
+        $method->invoke($service, $requestMock, $responseClass);
     }
 
     /**

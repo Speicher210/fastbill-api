@@ -26,7 +26,6 @@ class CouponServiceTest extends AbstractServiceTest
         $this->assertInstanceOf(GetApiResponse::class, $apiResponse);
         /** @var GetResponse $response */
         $response = $apiResponse->getResponse();
-        $this->assertFalse($response->hasErrors());
 
         $expectedCoupon1 = new Coupon();
         $expectedCoupon1
@@ -72,7 +71,6 @@ class CouponServiceTest extends AbstractServiceTest
         $this->assertInstanceOf(CheckApiResponse::class, $apiResponse);
         /** @var CheckResponse $response */
         $response = $apiResponse->getResponse();
-        $this->assertFalse($response->hasErrors());
 
         $expectedCheckResponse = new CheckResponse();
         $expectedCheckResponse->setStatus(CheckResponse::STATUS_INVALID);

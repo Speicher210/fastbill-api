@@ -39,7 +39,6 @@ class CustomerServiceTest extends AbstractServiceTest
         $this->assertInstanceOf(GetApiResponse::class, $apiResponse);
         /** @var GetResponse $response */
         $response = $apiResponse->getResponse();
-        $this->assertFalse($response->hasErrors());
 
         $expectedCustomer = new Customer();
         $expectedCustomer = $this->getCustomerForTesting($expectedCustomer);
@@ -60,7 +59,6 @@ class CustomerServiceTest extends AbstractServiceTest
         $this->assertInstanceOf(GetApiResponse::class, $apiResponse);
         /** @var GetResponse $response */
         $response = $apiResponse->getResponse();
-        $this->assertFalse($response->hasErrors());
 
         $expectedCustomer = new Customer();
         $expectedCustomer->setCustomerId(995443);
@@ -80,7 +78,6 @@ class CustomerServiceTest extends AbstractServiceTest
         $this->assertInstanceOf(CreateApiResponse::class, $apiResponse);
         /** @var CreateResponse $response */
         $response = $apiResponse->getResponse();
-        $this->assertFalse($response->hasErrors());
 
         $expectedCreateResponse = new CreateResponse();
         $expectedCreateResponse->setStatus('success');
@@ -104,7 +101,6 @@ class CustomerServiceTest extends AbstractServiceTest
         $this->assertInstanceOf(UpdateApiResponse::class, $apiResponse);
         /** @var UpdateResponse $response */
         $response = $apiResponse->getResponse();
-        $this->assertFalse($response->hasErrors());
 
         $expectedUpdateResponse = new UpdateResponse();
         $expectedUpdateResponse->setStatus('success');
@@ -122,7 +118,6 @@ class CustomerServiceTest extends AbstractServiceTest
 
         /** @var DeleteResponse $response */
         $response = $apiResponse->getResponse();
-        $this->assertFalse($response->hasErrors());
 
         $expectedDeleteResponse = new DeleteResponse();
         $expectedDeleteResponse->setStatus(DeleteResponse::STATUS_SUCCESS);
@@ -153,7 +148,6 @@ class CustomerServiceTest extends AbstractServiceTest
 
         /** @var CreateSecureLinkResponse $response */
         $response = $apiResponse->getResponse();
-        $this->assertFalse($response->hasErrors());
 
         $expectedCreateSecureLinkResponse = new CreateSecureLinkResponse();
         $expectedCreateSecureLinkResponse

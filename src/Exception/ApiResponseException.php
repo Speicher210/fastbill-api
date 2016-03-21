@@ -1,6 +1,6 @@
 <?php
 
-namespace Speicher210\Fastbill\Api;
+namespace Speicher210\Fastbill\Api\Exception;
 
 /**
  * Exception thrown when the API returns an error in the response.

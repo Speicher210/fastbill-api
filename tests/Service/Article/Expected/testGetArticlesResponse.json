@@ -3,7 +3,7 @@
     "SERVICE": "article.get",
     "FILTER": [
       {
-        "LIMIT": 1
+        "LIMIT": 100
       }
     ]
   },

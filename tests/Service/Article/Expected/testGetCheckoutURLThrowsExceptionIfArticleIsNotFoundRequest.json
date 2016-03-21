@@ -2,6 +2,6 @@
   "SERVICE": "article.get",
   "FILTER": {
     "LIMIT": 1,
-    "ARTICLE_NUMBER": "1"
+    "ARTICLE_NUMBER": "NON-EXISTING"
   }
 }

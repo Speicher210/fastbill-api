@@ -10,7 +10,6 @@ use Speicher210\Fastbill\Api\Model\Feature;
  */
 class SubscriptionService extends AbstractService
 {
-
     /**
      * Get the subscriptions.
      *
@@ -25,8 +24,7 @@ class SubscriptionService extends AbstractService
         $externalCustomerId = null,
         $subscriptionExternalId = null,
         $subscriptionId = null
-    )
-    {
+    ) {
         $requestData = new Get\RequestData();
         $requestData->setCustomerId($customerId);
         $requestData->setExternalCustomerId($externalCustomerId);
@@ -81,8 +79,7 @@ class SubscriptionService extends AbstractService
         $status = null,
         array $xAttributes = array(),
         array $features = array()
-    )
-    {
+    ) {
         $requestData = new Update\RequestData($subscriptionId);
 
         $requestData->setSubscriptionId($subscriptionId);
@@ -148,8 +145,7 @@ class SubscriptionService extends AbstractService
         $subscriptionId,
         \DateTime $subscriptionStart = null,
         \DateTime $subscriptionEnd = null
-    )
-    {
+    ) {
         $requestData = new GetUsageData\RequestData($subscriptionId);
 
         $requestData->setSubscriptionId($subscriptionId);

@@ -3,6 +3,7 @@
 namespace Speicher210\Fastbill\Api;
 
 use JMS\Serializer\SerializerInterface;
+use Speicher210\Fastbill\Api\Exception\ApiResponseException;
 use Speicher210\Fastbill\Api\Transport\TransportInterface;
 
 /**
