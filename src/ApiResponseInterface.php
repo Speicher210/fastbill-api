@@ -7,6 +7,10 @@ namespace Speicher210\Fastbill\Api;
  */
 interface ApiResponseInterface
 {
-
+    /**
+     * Get the response data.
+     *
+     * @return ResponseInterface
+     */
     public function getResponse();
 }
