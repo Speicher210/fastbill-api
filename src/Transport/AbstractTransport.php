@@ -35,4 +35,12 @@ abstract class AbstractTransport implements TransportInterface
 
         return $this;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getCredentials()
+    {
+        return $this->apiCredentials;
+    }
 }

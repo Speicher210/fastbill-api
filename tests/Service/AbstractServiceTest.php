@@ -4,6 +4,7 @@ namespace Speicher210\Fastbill\Test\Api\Service;
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use JMS\Serializer\SerializerBuilder;
+use Speicher210\Fastbill\Api\ApiCredentials;
 use Speicher210\Fastbill\Api\Serializer\Handler\DateHandler;
 use Speicher210\Fastbill\Api\ServiceInterface;
 use Speicher210\Fastbill\Api\Transport\TransportInterface;
@@ -53,12 +54,18 @@ abstract class AbstractServiceTest extends \PHPUnit_Framework_TestCase
         $transportRequest = json_encode(json_decode($transportRequest));
         $transportResponse = file_get_contents($fixturesDirectory.$this->getName().'Response.json');
 
+        $apiCredentials = new ApiCredentials('email@test.com', 'api-key', 'account-has');
+
         $transportMock = $this->getMock(TransportInterface::class);
         $transportMock
             ->expects($this->once())
             ->method('sendRequest')
             ->with($this->equalTo($transportRequest))
             ->willReturn($transportResponse);
+        $transportMock
+            ->expects($this->any())
+            ->method('getCredentials')
+            ->willReturn($apiCredentials);
 
         AnnotationRegistry::registerLoader('class_exists');
 

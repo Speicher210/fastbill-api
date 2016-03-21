@@ -21,6 +21,13 @@ interface TransportInterface
     public function setCredentials(ApiCredentials $credentials);
 
     /**
+     * Get the Fastbill API credentials.
+     *
+     * @return ApiCredentials
+     */
+    public function getCredentials();
+
+    /**
      * Send a request to Fastbill API.
      *
      * @param string $body The request body.
