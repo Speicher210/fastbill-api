@@ -1449,7 +1449,7 @@ trait CustomerTrait
      * Set the birthday.
      *
      * @param \DateTime $birthday The birthday.
-     * @return $this;
+     * @return $this
      */
     public function setBirthday(\DateTime $birthday)
     {

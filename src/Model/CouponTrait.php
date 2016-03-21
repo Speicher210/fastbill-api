@@ -251,7 +251,7 @@ trait CouponTrait
     /**
      * Set the discount amount.
      *
-     * @param string $discountAmount
+     * @param float $discountAmount
      * @return $this
      */
     public function setDiscountAmount($discountAmount)
@@ -310,7 +310,7 @@ trait CouponTrait
     /**
      * Get the discount period amount.
      *
-     * @return string
+     * @return integer
      */
     public function getDiscountPeriodAmount()
     {
@@ -320,7 +320,7 @@ trait CouponTrait
     /**
      * Set the discount period amount.
      *
-     * @param string $discountPeriodAmount
+     * @param integer $discountPeriodAmount
      * @return $this
      */
     public function setDiscountPeriodAmount($discountPeriodAmount)

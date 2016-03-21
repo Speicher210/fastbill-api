@@ -3,14 +3,12 @@
 namespace Speicher210\Fastbill\Api\Model\Notification\Payment;
 
 use Speicher210\Fastbill\Api\Model\Notification\Customer\Customer;
-use Speicher210\Fastbill\Api\Model\Notification\Subscription\SubscriptionTrait;
 
 /**
  * Interface for payment notifications payload.
  */
 interface PaymentNotificationPayloadInterface
 {
-
     /**
      * Get the customer.
      *
@@ -29,14 +27,14 @@ interface PaymentNotificationPayloadInterface
     /**
      * Get the subscription.
      *
-     * @return SubscriptionTrait
+     * @return PaymentSubscription
      */
     public function getSubscription();
 
     /**
      * Set the subscription.
      *
-     * @param SubscriptionTrait $subscription The subscription.
+     * @param PaymentSubscription $subscription The subscription.
      * @return PaymentNotificationPayloadInterface
      */
     public function setSubscription($subscription);

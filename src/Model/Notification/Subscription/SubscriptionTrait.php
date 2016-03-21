@@ -62,7 +62,7 @@ trait SubscriptionTrait
     /**
      * Get the subscription ID.
      *
-     * @return int
+     * @return integer
      */
     public function getSubscriptionId()
     {
@@ -72,8 +72,8 @@ trait SubscriptionTrait
     /**
      * Set the subscription ID.
      *
-     * @param int $subscriptionId
-     * @return SubscriptionTrait
+     * @param integer $subscriptionId
+     * @return $this
      */
     public function setSubscriptionId($subscriptionId)
     {
@@ -96,7 +96,7 @@ trait SubscriptionTrait
      * Set the subscription external ID.
      *
      * @param string $subscriptionExternalId The subscription external ID.
-     * @return SubscriptionTrait
+     * @return $this
      */
     public function setSubscriptionExternalId($subscriptionExternalId)
     {
@@ -119,7 +119,7 @@ trait SubscriptionTrait
      * Set the hash.
      *
      * @param string $hash The hash.
-     * @return SubscriptionTrait
+     * @return $this
      */
     public function setHash($hash)
     {
@@ -141,8 +141,8 @@ trait SubscriptionTrait
     /**
      * Set the article code.
      *
-     * @param int $articleCode The article code.
-     * @return SubscriptionTrait
+     * @param integer $articleCode The article code.
+     * @return $this
      */
     public function setArticleCode($articleCode)
     {
@@ -154,7 +154,7 @@ trait SubscriptionTrait
     /**
      * Get the quantity.
      *
-     * @return int
+     * @return integer
      */
     public function getQuantity()
     {
@@ -164,8 +164,8 @@ trait SubscriptionTrait
     /**
      * Set the quantity.
      *
-     * @param int $quantity The quantity.
-     * @return SubscriptionTrait
+     * @param integer $quantity The quantity.
+     * @return $this
      */
     public function setQuantity($quantity)
     {
