@@ -44,11 +44,12 @@ class CouponService extends AbstractService
      * Check a coupon.
      *
      * @param string $code The code to check.
+     * @param string $articleNumber The article number.
      * @return Check\ApiResponse
      */
-    public function checkCoupon($code)
+    public function checkCoupon($code, $articleNumber)
     {
-        $requestData = new Check\RequestData($code);
+        $requestData = new Check\RequestData($code, $articleNumber);
         $request = new Check\Request($requestData);
 
         return $this->sendRequest($request, Check\ApiResponse::class);

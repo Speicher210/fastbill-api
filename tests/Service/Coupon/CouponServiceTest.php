@@ -2,6 +2,7 @@
 
 namespace Speicher210\Fastbill\Test\Api\Service\Coupon;
 
+use Speicher210\Fastbill\Api\Exception\ApiResponseException;
 use Speicher210\Fastbill\Api\Model\Coupon;
 use Speicher210\Fastbill\Api\Service\Coupon\Check\ApiResponse as CheckApiResponse;
 use Speicher210\Fastbill\Api\Service\Coupon\Check\Response as CheckResponse;
@@ -66,7 +67,7 @@ class CouponServiceTest extends AbstractServiceTest
         /** @var CouponService $couponService */
         $couponService = $this->getServiceToTest();
 
-        $apiResponse = $couponService->checkCoupon('424258989');
+        $apiResponse = $couponService->checkCoupon('424258989', 'ART_123');
 
         $this->assertInstanceOf(CheckApiResponse::class, $apiResponse);
         /** @var CheckResponse $response */
@@ -75,6 +76,15 @@ class CouponServiceTest extends AbstractServiceTest
         $expectedCheckResponse = new CheckResponse();
         $expectedCheckResponse->setStatus(CheckResponse::STATUS_INVALID);
         $this->assertEquals($expectedCheckResponse, $response);
+    }
+
+    public function testCheckCouponThrowsExceptionIfCodeIsValidAndArticleIsNotValid()
+    {
+        /** @var CouponService $couponService */
+        $couponService = $this->getServiceToTest();
+
+        $this->setExpectedException(ApiResponseException::class, 'Error calling "coupon.check"');
+        $couponService->checkCoupon('424258989', 'MISSING_ARTICLE');
     }
 
     /**

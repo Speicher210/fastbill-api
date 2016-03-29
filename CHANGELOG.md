@@ -4,7 +4,10 @@ All Notable changes to `speicher210/fastbill-api` will be documented in this fil
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
-## [Unreleased]
+## [1.3.0] - 2016-03-29
+
+### Changed
+- [BC BREAK] The article number is now required when checking a coupon (Fastbill API change)
 
 ## [1.2.0] - 2016-03-21
 

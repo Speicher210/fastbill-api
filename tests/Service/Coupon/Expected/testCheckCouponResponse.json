@@ -2,7 +2,8 @@
   "REQUEST": {
     "SERVICE": "coupon.check",
     "DATA": {
-      "CODE": "424258989"
+      "CODE": "424258989",
+      "ARTICLE_NUMBER":"ART_123"
     }
   },
   "RESPONSE": {
