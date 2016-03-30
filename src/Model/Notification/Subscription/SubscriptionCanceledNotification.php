@@ -9,5 +9,4 @@ use JMS\Serializer\Annotation as JMS;
  */
 class SubscriptionCanceledNotification extends AbstractSubscriptionNotificationPayload
 {
-
 }
