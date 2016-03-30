@@ -12,7 +12,6 @@ use Speicher210\Fastbill\Api\AbstractApiResponse;
  */
 class ApiResponse extends AbstractApiResponse
 {
-
     /**
      * @var Request
      *

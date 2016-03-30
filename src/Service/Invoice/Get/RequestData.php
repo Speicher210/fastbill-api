@@ -10,7 +10,6 @@ use Speicher210\Fastbill\Api\AbstractRequestData;
  */
 final class RequestData extends AbstractRequestData
 {
-
     /**
      * The invoice ID.
      *
@@ -110,7 +109,7 @@ final class RequestData extends AbstractRequestData
     /**
      * Set the invoice ID.
      *
-     * @param int $invoiceId
+     * @param integer $invoiceId The invoice ID.
      * @return RequestData
      */
     public function setInvoiceId($invoiceId)
@@ -121,7 +120,7 @@ final class RequestData extends AbstractRequestData
     }
 
     /**
-     * Get the invoice number
+     * Get the invoice number.
      *
      * @return string
      */
@@ -133,7 +132,7 @@ final class RequestData extends AbstractRequestData
     /**
      * Set the invoice number.
      *
-     * @param string $invoiceNumber
+     * @param string $invoiceNumber The invoice number.
      * @return RequestData
      */
     public function setInvoiceNumber($invoiceNumber)
@@ -144,7 +143,7 @@ final class RequestData extends AbstractRequestData
     }
 
     /**
-     * Get the invoice title
+     * Get the invoice title.
      *
      * @return string
      */

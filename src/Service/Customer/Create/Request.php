@@ -11,7 +11,6 @@ use Speicher210\Fastbill\Api\Model\Customer;
  */
 class Request extends AbstractRequest
 {
-
     /**
      * @var Customer
      *

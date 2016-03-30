@@ -67,7 +67,7 @@ final class RequestData extends AbstractRequestData
      */
     public function getMonth()
     {
-        return (int)ltrim($this->month, '0');
+        return (int) ltrim($this->month, '0');
     }
 
     /**

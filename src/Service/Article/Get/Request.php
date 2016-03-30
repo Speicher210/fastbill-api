@@ -11,7 +11,6 @@ use Speicher210\Fastbill\Api\GetRequestTrait;
  */
 class Request extends AbstractRequest
 {
-
     use GetRequestTrait;
 
     /**

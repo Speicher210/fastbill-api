@@ -49,7 +49,7 @@ class SubscriptionService extends AbstractService
     }
 
     /**
-     * Create a subscription
+     * Create a subscription.
      *
      * @param Create\RequestData $requestData The request data.
      * @return Create\ApiResponse

@@ -9,7 +9,6 @@ use JMS\Serializer\Annotation as JMS;
  */
 class AbstractResponse implements ResponseInterface
 {
-
     /**
      * Array of errors.
      *

@@ -7,7 +7,6 @@ namespace Speicher210\Fastbill\Api;
  */
 abstract class AbstractApiResponse implements ApiResponseInterface
 {
-
     /**
      * The response part from the API Response.
      *

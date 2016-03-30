@@ -10,7 +10,6 @@ use Speicher210\Fastbill\Api\AbstractResponse;
  */
 class Response extends AbstractResponse
 {
-
     /**
      * The invoices from the response.
      *
@@ -28,6 +27,6 @@ class Response extends AbstractResponse
      */
     public function getInvoices()
     {
-        return (array)$this->invoices;
+        return (array) $this->invoices;
     }
 }

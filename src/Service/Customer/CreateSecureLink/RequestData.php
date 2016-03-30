@@ -32,6 +32,7 @@ final class RequestData extends AbstractRequestData
 
     /**
      * Get the customer ID.
+     *
      * @return integer
      */
     public function getCustomerId()

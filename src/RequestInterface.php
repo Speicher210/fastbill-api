@@ -7,7 +7,6 @@ namespace Speicher210\Fastbill\Api;
  */
 interface RequestInterface
 {
-
     /**
      * Get the name of the service.
      *

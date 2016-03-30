@@ -11,7 +11,6 @@ use Speicher210\Fastbill\Api\ApiCredentials;
  */
 class GuzzleTransport extends AbstractTransport
 {
-
     /**
      * The Guzzle client.
      *
@@ -28,18 +27,20 @@ class GuzzleTransport extends AbstractTransport
     {
         parent::__construct($credentials);
 
-        $this->client = new Client([
-            // Base URI is used with relative requests
-            'base_uri' => self::BASE_URL,
-            // You can set any number of default request options.
-            'auth' => [
-                $this->apiCredentials->getEmail(),
-                $this->apiCredentials->getApiKey()
-            ],
-            'headers' => array(
-                'Content-Type' => 'application/json'
-            )
-        ]);
+        $this->client = new Client(
+            [
+                // Base URI is used with relative requests
+                'base_uri' => self::BASE_URL,
+                // You can set any number of default request options.
+                'auth' => [
+                    $this->apiCredentials->getEmail(),
+                    $this->apiCredentials->getApiKey(),
+                ],
+                'headers' => array(
+                    'Content-Type' => 'application/json',
+                ),
+            ]
+        );
     }
 
     /**
@@ -48,9 +49,13 @@ class GuzzleTransport extends AbstractTransport
     public function sendRequest($body)
     {
         try {
-            $response = $this->client->request('POST', null, [
-                'body' => $body
-            ]);
+            $response = $this->client->request(
+                'POST',
+                null,
+                [
+                    'body' => $body
+                ]
+            );
 
             $body = $response->getBody()->getContents();
         } catch (RequestException $e) {

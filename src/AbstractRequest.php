@@ -9,7 +9,6 @@ use JMS\Serializer\Annotation as JMS;
  */
 abstract class AbstractRequest implements RequestInterface
 {
-
     /**
      * @var string
      *

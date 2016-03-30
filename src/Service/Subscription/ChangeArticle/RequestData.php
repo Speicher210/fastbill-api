@@ -316,7 +316,7 @@ final class RequestData extends AbstractRequestData
      */
     public function isResetAddons()
     {
-        return (boolean)$this->resetAddons;
+        return (boolean) $this->resetAddons;
     }
 
     /**
@@ -327,7 +327,7 @@ final class RequestData extends AbstractRequestData
      */
     public function setResetAddons($resetAddons)
     {
-        $this->resetAddons = (integer)(boolean)$resetAddons;
+        $this->resetAddons = (integer) (boolean) $resetAddons;
 
         return $this;
     }
@@ -408,7 +408,7 @@ final class RequestData extends AbstractRequestData
      */
     public function getSuppressMail()
     {
-        return (boolean)$this->suppressMail;
+        return (boolean) $this->suppressMail;
     }
 
     /**
@@ -419,7 +419,7 @@ final class RequestData extends AbstractRequestData
      */
     public function setSuppressMail($suppressMail)
     {
-        $this->suppressMail = (integer)(boolean)$suppressMail;
+        $this->suppressMail = (integer) (boolean) $suppressMail;
 
         return $this;
     }

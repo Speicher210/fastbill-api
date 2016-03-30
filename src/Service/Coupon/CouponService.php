@@ -9,7 +9,6 @@ use Speicher210\Fastbill\Api\AbstractService;
  */
 class CouponService extends AbstractService
 {
-
     /**
      * Get the coupons.
      *
@@ -35,7 +34,6 @@ class CouponService extends AbstractService
                 $validTo->setTime(0, 0, 0);
             }
         }
-
 
         return $apiResponse;
     }

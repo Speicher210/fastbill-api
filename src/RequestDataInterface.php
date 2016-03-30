@@ -7,5 +7,4 @@ namespace Speicher210\Fastbill\Api;
  */
 interface RequestDataInterface
 {
-
 }

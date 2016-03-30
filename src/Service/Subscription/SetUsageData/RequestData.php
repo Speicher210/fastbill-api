@@ -244,7 +244,7 @@ final class RequestData extends AbstractRequestData
     }
 
     /**
-     * Set the usage date
+     * Set the usage date.
      *
      * @param string $usageDate The usage date.
      * @return RequestData

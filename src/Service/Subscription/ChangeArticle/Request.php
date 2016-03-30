@@ -10,7 +10,6 @@ use Speicher210\Fastbill\Api\AbstractRequest;
  */
 class Request extends AbstractRequest
 {
-
     /**
      * The request body.
      *

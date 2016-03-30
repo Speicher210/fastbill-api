@@ -7,7 +7,6 @@ namespace Speicher210\Fastbill\Api;
  */
 interface ResponseInterface
 {
-
     const STATUS_SUCCESS = 'success';
     const STATUS_INVALID = 'invalid';
 

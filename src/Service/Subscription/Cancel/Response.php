@@ -10,8 +10,6 @@ use Speicher210\Fastbill\Api\AbstractResponse;
  */
 class Response extends AbstractResponse
 {
-
-
     /**
      *  The subscription cancellation date.
      *

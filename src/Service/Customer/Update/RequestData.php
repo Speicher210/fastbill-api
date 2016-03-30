@@ -11,7 +11,6 @@ use Speicher210\Fastbill\Api\Model\CustomerTrait;
  */
 final class RequestData extends AbstractRequestData
 {
-
     use CustomerTrait;
 
     /**
@@ -41,7 +40,7 @@ final class RequestData extends AbstractRequestData
      */
     public function getSuppressEmail()
     {
-        return (boolean)$this->suppressEmail;
+        return (boolean) $this->suppressEmail;
     }
 
     /**

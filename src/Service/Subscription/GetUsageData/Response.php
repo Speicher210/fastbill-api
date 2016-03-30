@@ -10,7 +10,6 @@ use Speicher210\Fastbill\Api\AbstractResponse;
  */
 class Response extends AbstractResponse
 {
-
     /**
      * The usage data ID.
      *
@@ -271,7 +270,6 @@ class Response extends AbstractResponse
 
         return $this;
     }
-
 
     /**
      * Get the usage date.

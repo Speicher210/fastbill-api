@@ -10,7 +10,6 @@ use Speicher210\Fastbill\Api\AbstractRequestData;
  */
 final class RequestData extends AbstractRequestData
 {
-
     /**
      * The subscription ID.
      *
@@ -136,6 +135,8 @@ final class RequestData extends AbstractRequestData
      */
     public function setExternalCustomerId($externalCustomerId)
     {
-        return $this->externalCustomerId = $externalCustomerId;
+        $this->externalCustomerId = $externalCustomerId;
+
+        return $this;
     }
 }

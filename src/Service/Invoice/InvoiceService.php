@@ -9,7 +9,6 @@ use Speicher210\Fastbill\Api\AbstractService;
  */
 class InvoiceService extends AbstractService
 {
-
     /**
      * Get the invoices.
      *

@@ -10,7 +10,6 @@ use Speicher210\Fastbill\Api\AbstractRequestData;
  */
 final class RequestData extends AbstractRequestData
 {
-
     /**
      * The coupon code.
      *
