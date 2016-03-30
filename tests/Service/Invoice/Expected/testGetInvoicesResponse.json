@@ -1,6 +1,8 @@
 {
   "REQUEST": {
-    "SERVICE": "invoice.get"
+    "SERVICE": "invoice.get",
+    "FILTER": [],
+    "LIMIT": 100
   },
   "RESPONSE": {
     "INVOICES": [

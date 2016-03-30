@@ -36,10 +36,10 @@ class ArticleService extends AbstractService
     public function getArticle($articleNumber)
     {
         $requestData = new Get\RequestData();
-        $requestData->setLimit(1);
         $requestData->setArticleNumber($articleNumber);
 
         $request = new Get\Request($requestData);
+        $request->setLimit(1);
 
         /** @var Get\ApiResponse $apiResponse */
         $apiResponse = $this->sendRequest($request, Get\ApiResponse::class);

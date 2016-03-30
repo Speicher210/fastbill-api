@@ -1,7 +1,6 @@
 {
   "SERVICE": "subscription.reactivate",
   "FILTER": {
-    "LIMIT": 100,
     "SUBSCRIPTION_ID": 501982
   }
 }

@@ -2,9 +2,9 @@
   "REQUEST": {
     "SERVICE": "coupon.get",
     "FILTER": {
-      "LIMIT": 100,
       "CODE": "424258989"
-    }
+    },
+    "LIMIT": 100
   },
   "RESPONSE": {
     "COUPONS": [

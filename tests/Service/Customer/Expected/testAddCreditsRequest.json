@@ -1,7 +1,6 @@
 {
   "SERVICE": "customer.addcredits",
   "DATA": {
-    "LIMIT": 100,
     "CUSTOMER_ID": 995434,
     "AMOUNT": 1.5
   }

@@ -4,12 +4,15 @@ namespace Speicher210\Fastbill\Api\Service\Customer\Get;
 
 use JMS\Serializer\Annotation as JMS;
 use Speicher210\Fastbill\Api\AbstractRequest;
+use Speicher210\Fastbill\Api\GetRequestTrait;
 
 /**
  * The request for getting the customers.
  */
 class Request extends AbstractRequest
 {
+
+    use GetRequestTrait;
 
     /**
      * The request body.

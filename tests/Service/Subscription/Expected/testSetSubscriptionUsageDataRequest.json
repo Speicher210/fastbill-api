@@ -1,7 +1,6 @@
 {
   "SERVICE": "subscription.setusagedata",
   "DATA": {
-    "LIMIT": 100,
     "SUBSCRIPTION_ID": 503772,
     "ARTICLE_NUMBER": "666"
   }

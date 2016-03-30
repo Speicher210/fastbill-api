@@ -1,7 +1,6 @@
 {
   "SERVICE": "coupon.check",
   "DATA": {
-    "LIMIT": 100,
     "CODE": "424258989",
     "ARTICLE_NUMBER": "MISSING_ARTICLE"
   }

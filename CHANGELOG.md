@@ -4,6 +4,11 @@ All Notable changes to `speicher210/fastbill-api` will be documented in this fil
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [1.4.0] - 2016-03-30
+
+### Changed
+- [BC BREAK] Moved the `limit` and `offset` from the request data to the `get` requests in services.
+
 ## [1.3.0] - 2016-03-29
 
 ### Changed

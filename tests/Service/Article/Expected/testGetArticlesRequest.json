@@ -1,7 +1,7 @@
 {
   "SERVICE": "article.get",
   "FILTER": {
-    "LIMIT": 100,
     "ARTICLE_NUMBER": "1"
-  }
+  },
+  "LIMIT":100
 }
