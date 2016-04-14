@@ -4,10 +4,14 @@ All Notable changes to `speicher210/fastbill-api` will be documented in this fil
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
-## [1.4.1] - 2016-04-xx
+## [1.4.1] - 2016-04-14
 
 ### Added
 - Methods to get only one customer.
+- Added method to get the checkout URL for an article instance.
+
+### Changed
+- Deprecated `getCheckoutURL` in Article service. Use `getArticleNumberCheckoutURL` or `getArticleCheckoutURL`.
 
 ## [1.4.0] - 2016-03-30
 
@@ -17,7 +21,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ## [1.3.0] - 2016-03-29
 
 ### Changed
-- [BC BREAK] The article number is now required when checking a coupon (Fastbill API change)
+- [BC BREAK] The article number is now required when checking a coupon (Fastbill API change).
 
 ## [1.2.0] - 2016-03-21
 

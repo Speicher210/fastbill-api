@@ -101,7 +101,7 @@ abstract class AbstractServiceTest extends \PHPUnit_Framework_TestCase
         $transportRequest = json_encode(json_decode($transportRequest));
         $transportResponse = file_get_contents($fixturesDirectory.$this->getName().'Response.json');
 
-        $apiCredentials = new ApiCredentials('email@test.com', 'api-key', 'account-has');
+        $apiCredentials = new ApiCredentials('email@test.com', 'api-key', 'account-hash');
 
         $transportMock = $this->getMock(TransportInterface::class);
         $transportMock

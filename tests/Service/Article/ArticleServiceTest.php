@@ -2,6 +2,8 @@
 
 namespace Speicher210\Fastbill\Test\Api\Service\Article;
 
+use JMS\Serializer\SerializerInterface;
+use Speicher210\Fastbill\Api\ApiCredentials;
 use Speicher210\Fastbill\Api\Model\Article;
 use Speicher210\Fastbill\Api\Model\Customer;
 use Speicher210\Fastbill\Api\Model\Feature;
@@ -10,6 +12,7 @@ use Speicher210\Fastbill\Api\Model\TranslationText;
 use Speicher210\Fastbill\Api\Service\Article\ArticleService;
 use Speicher210\Fastbill\Api\Service\Article\Get\ApiResponse as GetApiResponse;
 use Speicher210\Fastbill\Api\Service\Article\Get\Response as GetResponse;
+use Speicher210\Fastbill\Api\Transport\TransportInterface;
 use Speicher210\Fastbill\Test\Api\Service\AbstractServiceTest;
 
 /**
@@ -42,28 +45,52 @@ class ArticleServiceTest extends AbstractServiceTest
         $this->assertEquals($expectedArticle, $actualArticle);
     }
 
-    public function testGetCheckoutURLThrowsExceptionIfArticleIsNotFound()
+    public function testGetArticleCheckoutURLReturnsTheURLForACustomer()
+    {
+        $apiCredentials = new ApiCredentials('email@test.com', 'api-key', 'account-hash');
+
+        /** @var ArticleService $articleService */
+        $transportMock = $this->getMock(TransportInterface::class);
+        $transportMock
+            ->expects($this->any())
+            ->method('getCredentials')
+            ->willReturn($apiCredentials);
+        $serializerMock = $this->getMock(SerializerInterface::class);
+        $articleService = new ArticleService($transportMock, $serializerMock);
+
+        $article = new Article();
+        $article->setArticleNumber('1');
+        $customer = new Customer();
+        $customer->setHash('customer-hash');
+
+        $this->assertSame(
+            'https://automatic.fastbill.com/checkout/0/account-hash/customer-hash/1',
+            $articleService->getArticleCheckoutURL($article, $customer)
+        );
+    }
+
+    public function testGetArticleNumberCheckoutURLThrowsExceptionIfArticleIsNotFound()
     {
         /** @var ArticleService $articleService */
         $articleService = $this->getServiceToTest();
 
         $this->setExpectedException('\OutOfBoundsException', 'Article not found.');
 
-        $articleService->getCheckoutURL('NON-EXISTING');
+        $articleService->getArticleNumberCheckoutURL('NON-EXISTING');
     }
 
-    public function testGetCheckoutURLReturnsTheURLIfNoCustomerPassed()
+    public function testGetArticleNumberCheckoutURLReturnsTheURLIfNoCustomerPassed()
     {
         /** @var ArticleService $articleService */
         $articleService = $this->getServiceToTest();
 
         $this->assertSame(
             'https://automatic.fastbill.com/purchase/aa9122707e4baf2090e23babe7473a79/1',
-            $articleService->getCheckoutURL(1)
+            $articleService->getArticleNumberCheckoutURL(1)
         );
     }
 
-    public function testGetCheckoutURLReturnsTheURLForACustomer()
+    public function testGetArticleNumberCheckoutURLReturnsTheURLForACustomer()
     {
         /** @var ArticleService $articleService */
         $articleService = $this->getServiceToTest();
@@ -71,10 +98,9 @@ class ArticleServiceTest extends AbstractServiceTest
         $customer = new Customer();
         $customer->setHash('customer-hash');
 
-
         $this->assertSame(
-            'https://automatic.fastbill.com/checkout/0/account-has/customer-hash/1',
-            $articleService->getCheckoutURL('1', $customer)
+            'https://automatic.fastbill.com/checkout/0/account-hash/customer-hash/1',
+            $articleService->getArticleNumberCheckoutURL('1', $customer)
         );
     }
 

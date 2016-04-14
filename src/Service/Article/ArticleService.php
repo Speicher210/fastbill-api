@@ -48,6 +48,15 @@ class ArticleService extends AbstractService
         return isset($articles[0]) ? $articles[0] : null;
     }
 
+    public function getArticleCheckoutURL(Article $article, Customer $customer = null)
+    {
+        if ($customer === null) {
+            return $article->getCheckoutUrl();
+        }
+
+        return $this->generateCheckoutURLForCustomer($customer->getHash(), $article->getArticleNumber());
+    }
+
     /**
      * Get the checkout URL for an article.
      *
@@ -55,21 +64,43 @@ class ArticleService extends AbstractService
      * @param Customer $customer The customer for witch the checkout URL should be created.
      * @return string
      */
-    public function getCheckoutURL($articleNumber, Customer $customer = null)
+    public function getArticleNumberCheckoutURL($articleNumber, Customer $customer = null)
     {
         $article = $this->getArticle($articleNumber);
         if ($article === null) {
             throw new \OutOfBoundsException('Article not found.');
         }
 
-        if ($customer === null) {
-            return $article->getCheckoutUrl();
-        }
+        return $this->getArticleCheckoutURL($article, $customer);
+    }
 
+    /**
+     * Get the checkout URL for an article.
+     *
+     * @deprecated Use getArticleNumberCheckoutURL
+     *
+     * @param string $articleNumber Article number of the article to get the checkout URL.
+     * @param Customer $customer The customer for witch the checkout URL should be created.
+     * @return string
+     */
+    public function getCheckoutURL($articleNumber, Customer $customer = null)
+    {
+        return $this->getArticleNumberCheckoutURL($articleNumber, $customer);
+    }
+
+    /**
+     * Get the checkout URL of an article for a customer.
+     *
+     * @param string $customerHash The customer hash.
+     * @param string $articleNumber The article number.
+     * @return string
+     */
+    protected function generateCheckoutURLForCustomer($customerHash, $articleNumber)
+    {
         return sprintf(
             'https://automatic.fastbill.com/checkout/0/%s/%s/%s',
             $this->transport->getCredentials()->getAccountHash(),
-            $customer->getHash(),
+            $customerHash,
             $articleNumber
         );
     }
