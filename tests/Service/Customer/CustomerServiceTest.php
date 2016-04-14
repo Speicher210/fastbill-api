@@ -33,18 +33,41 @@ class CustomerServiceTest extends AbstractServiceTest
         $customerService = $this->getServiceToTest();
 
         $data = new GetRequestData();
-        $data->setCustomerId(995443);
         $apiResponse = $customerService->getCustomers($data);
 
         $this->assertInstanceOf(GetApiResponse::class, $apiResponse);
         /** @var GetResponse $response */
         $response = $apiResponse->getResponse();
 
+        $expectedCustomer1 = new Customer();
+        $expectedCustomer1 = $this->getCustomerForTesting($expectedCustomer1, 1);
+        $expectedCustomer2 = new Customer();
+        $expectedCustomer2 = $this->getCustomerForTesting($expectedCustomer2, 2);
+        $this->assertEquals(array($expectedCustomer1, $expectedCustomer2), $response->getCustomers());
+    }
+
+    public function testGetCustomer()
+    {
+        /** @var CustomerService $customerService */
+        $customerService = $this->getServiceToTest();
+
+        $actualCustomer = $customerService->getCustomer(1);
+
         $expectedCustomer = new Customer();
-        $expectedCustomer = $this->getCustomerForTesting($expectedCustomer);
-        $expectedCustomer->setChangeDataUrl('https://test.com/change-data');
-        $expectedCustomer->setDashboardUrl('https://test.com/dashboard');
-        $this->assertEquals(array($expectedCustomer), $response->getCustomers());
+        $expectedCustomer = $this->getCustomerForTesting($expectedCustomer, 1);
+        $this->assertEquals($expectedCustomer, $actualCustomer);
+    }
+
+    public function testGetCustomerByExternalUid()
+    {
+        /** @var CustomerService $customerService */
+        $customerService = $this->getServiceToTest();
+
+        $actualCustomer = $customerService->getCustomerByExternalUid(1);
+
+        $expectedCustomer = new Customer();
+        $expectedCustomer = $this->getCustomerForTesting($expectedCustomer, 1);
+        $this->assertEquals($expectedCustomer, $actualCustomer);
     }
 
     public function testGetCustomerWithDateFieldsEmptyString()
@@ -52,17 +75,11 @@ class CustomerServiceTest extends AbstractServiceTest
         /** @var CustomerService $customerService */
         $customerService = $this->getServiceToTest();
 
-        $data = new GetRequestData();
-        $data->setCustomerId(995443);
-        $apiResponse = $customerService->getCustomers($data);
-
-        $this->assertInstanceOf(GetApiResponse::class, $apiResponse);
-        /** @var GetResponse $response */
-        $response = $apiResponse->getResponse();
+        $actualCustomer = $customerService->getCustomer(1);
 
         $expectedCustomer = new Customer();
-        $expectedCustomer->setCustomerId(995443);
-        $this->assertEquals(array($expectedCustomer), $response->getCustomers());
+        $expectedCustomer->setCustomerId(1);
+        $this->assertEquals($expectedCustomer, $actualCustomer);
     }
 
     public function testCreateCustomer()
@@ -72,7 +89,9 @@ class CustomerServiceTest extends AbstractServiceTest
 
         /** @var Customer $data */
         $data = new Customer();
-        $data = $this->getCustomerForTesting($data);
+        $data = $this->getCustomerForTesting($data, 1);
+        $data->setChangeDataUrl(null);
+        $data->setDashboardUrl(null);
         $apiResponse = $customerService->createCustomer($data);
 
         $this->assertInstanceOf(CreateApiResponse::class, $apiResponse);
@@ -83,8 +102,8 @@ class CustomerServiceTest extends AbstractServiceTest
         $expectedCreateResponse->setStatus('success');
         $expectedCreateResponse->setCustomerId(998898);
         $expectedCreateResponse->setHash('a88a4e7e2024e308cbecbee931b1d40a');
-        $expectedCreateResponse->setDashboardUrl('https://test.com/dashboard');
-        $expectedCreateResponse->setChangeDataUrl('https://test.com/change-data');
+        $expectedCreateResponse->setDashboardUrl('https://test.com/dashboard/1');
+        $expectedCreateResponse->setChangeDataUrl('https://test.com/change-data/1');
         $this->assertEquals($expectedCreateResponse, $response);
     }
 
@@ -94,8 +113,10 @@ class CustomerServiceTest extends AbstractServiceTest
         $customerService = $this->getServiceToTest();
 
         /** @var UpdateRequestData $data */
-        $object = new UpdateRequestData(995443);
-        $data = $this->getCustomerForTesting($object);
+        $object = new UpdateRequestData(1);
+        $data = $this->getCustomerForTesting($object, 1);
+        $data->setChangeDataUrl(null);
+        $data->setDashboardUrl(null);
         $apiResponse = $customerService->updateCustomer($data);
 
         $this->assertInstanceOf(UpdateApiResponse::class, $apiResponse);
@@ -160,61 +181,64 @@ class CustomerServiceTest extends AbstractServiceTest
      * Get a customer model with data for testing.
      *
      * @param mixed $customer The class of the object to instantiate.
+     * @param integer $identifier Unique identifier for the fake data.
      * @return object
      */
-    private function getCustomerForTesting($customer)
+    private function getCustomerForTesting($customer, $identifier)
     {
         /** @var CustomerTrait $customer */
-        $customer->setCustomerId(995443)
-            ->setCustomerNumber(16)
-            ->setDaysForPayment(14)
-            ->setCustomerExternalUid(333)
-            ->setCreated(new \DateTime("2015-10-23 12:17:13"))
-            ->setLastUpdate(new \DateTime('2015-10-24 13:18:14'))
-            ->setFirstName('Testing')
-            ->setLastName('Tester')
-            ->setTitleAcademic('Prof.')
-            ->setSalutation('Salut')
+        $customer->setCustomerId($identifier)
+            ->setCustomerNumber($identifier)
+            ->setDaysForPayment($identifier)
+            ->setCustomerExternalUid('e' . $identifier)
+            ->setCreated(new \DateTime(sprintf('2015-10-23 12:17:%02d', $identifier)))
+            ->setLastUpdate(new \DateTime(sprintf('2015-10-24 13:18:%02d', $identifier)))
+            ->setFirstName('Testing' . $identifier)
+            ->setLastName('Tester' . $identifier)
+            ->setTitleAcademic('Prof.' . $identifier)
+            ->setSalutation('Salut' . $identifier)
             ->setBirthday(new \DateTime('1983-04-27'))
             ->setCustomerType(Customer::CUSTOMER_TYPE_BUSINESS)
-            ->setOrganization('Test 11')
+            ->setOrganization('Organization' . $identifier)
             ->setPaymentType(Customer::CUSTOMER_PAYMENT_TYPE_TRANSFER)
-            ->setAffiliate('together')
+            ->setAffiliate('together' . $identifier)
             ->setBankAccountMandateReferenceDate(new \DateTime('2015-11-06 00:15:00'))
-            ->setTaxId('tax_id')
-            ->setVatId('vat_id')
-            ->setBankName('Banky')
-            ->setBankCode('BKY')
-            ->setBankIBAN('WBKY123456')
-            ->setBankBIC('WBKY')
-            ->setBankAccountOwnerAddress('Bank owner address')
-            ->setBankAccountOwnerCity('Bank owner city')
-            ->setBankAccountOwnerZipCode('Bank owner zip')
-            ->setBankAccountOwnerEmail('Bank owner email')
-            ->setBankAccountMandateReference('man_ref')
+            ->setTaxId('tax_id' . $identifier)
+            ->setVatId('vat_id' . $identifier)
+            ->setBankName('Banky' . $identifier)
+            ->setBankCode('BKY' . $identifier)
+            ->setBankIBAN('WBKY123456' . $identifier)
+            ->setBankBIC('WBKY' . $identifier)
+            ->setBankAccountOwnerAddress('Bank owner address' . $identifier)
+            ->setBankAccountOwnerCity('Bank owner city' . $identifier)
+            ->setBankAccountOwnerZipCode('Bank owner zip' . $identifier)
+            ->setBankAccountOwnerEmail('Bank owner email' . $identifier)
+            ->setBankAccountMandateReference('man_ref' . $identifier)
             ->setShowPaymentNotice(false)
-            ->setPaymentMailAddress('pay address')
-            ->setAddress('Spaldingstrasse 210')
-            ->setAddress2('Et.4')
-            ->setSecondaryAddress('Second address')
+            ->setPaymentMailAddress('pay address' . $identifier)
+            ->setAddress('Spaldingstrasse 210' . $identifier)
+            ->setAddress2('Et.' . $identifier)
+            ->setSecondaryAddress('Second address' . $identifier)
             ->setCountryCode('DE')
-            ->setZipCode('20097')
-            ->setState('State')
-            ->setCity('Hamburg')
-            ->setPhone('phone')
-            ->setFax('fax')
+            ->setZipCode($identifier)
+            ->setState('State' . $identifier)
+            ->setCity('Hamburg' . $identifier)
+            ->setPhone('phone' . $identifier)
+            ->setFax('fax' . $identifier)
             ->setNewsletterOptIn(false)
-            ->setHash('8f2cb48d081fa6e01a7a06714008f734')
-            ->setBankAccountOwner('World')
-            ->setBankAccountNumber('123456')
+            ->setHash('hash' . $identifier)
+            ->setBankAccountOwner('World' . $identifier)
+            ->setBankAccountNumber('123456' . $identifier)
             ->setCurrencyCode('EUR')
             ->setLanguageCode('de')
-            ->setEmail('test@test.com')
-            ->setEmailCC('test_cc@test.com')
+            ->setEmail('test' . $identifier . '@test.com')
+            ->setEmailCC('test_cc' . $identifier . '@test.com')
             ->setCreditBalance('1,00')
             ->setInvoiceDeliveryMethod(Customer::INVOICE_DELIVERY_METHOD_MAIL)
-            ->setComment('are you talking to me?')
-            ->setTags(array('tag1', 'tag2'));
+            ->setComment('are you talking to me?' . $identifier)
+            ->setTags(array('tag1' . $identifier, 'tag2' . $identifier))
+            ->setChangeDataUrl('https://test.com/change-data/' . $identifier)
+            ->setDashboardUrl('https://test.com/dashboard/' . $identifier);
 
         return $customer;
     }

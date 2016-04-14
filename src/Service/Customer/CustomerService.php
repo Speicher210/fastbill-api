@@ -34,6 +34,38 @@ class CustomerService extends AbstractService
     }
 
     /**
+     * Get one customer by ID.
+     *
+     * @param integer $customerId The customer ID.
+     * @return Customer|null
+     */
+    public function getCustomer($customerId)
+    {
+        $requestData = new Get\RequestData();
+        $requestData->setCustomerId($customerId);
+
+        $customers = $this->getCustomers($requestData)->getResponse()->getCustomers();
+
+        return isset($customers[0]) ? $customers[0] : null;
+    }
+
+    /**
+     * Get once customer by the external ID.
+     *
+     * @param string $customerExternalUid The external customer ID.
+     * @return Customer|null
+     */
+    public function getCustomerByExternalUid($customerExternalUid)
+    {
+        $requestData = new Get\RequestData();
+        $requestData->setCustomerExternalUid($customerExternalUid);
+
+        $customers = $this->getCustomers($requestData)->getResponse()->getCustomers();
+
+        return isset($customers[0]) ? $customers[0] : null;
+    }
+
+    /**
      * Update a customer.
      *
      * @param Update\RequestData $requestData The data to send.
