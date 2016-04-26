@@ -9,6 +9,10 @@ use JMS\Serializer\Annotation as JMS;
  */
 class Payment
 {
+    const PAYMENT_STATUS_OPEN = 'open';
+
+    const PAYMENT_STATUS_ERROR = 'error';
+
     /**
      * The payment ID.
      *
