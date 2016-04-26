@@ -4,10 +4,11 @@ All Notable changes to `speicher210/fastbill-api` will be documented in this fil
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
-## [1.4.x] - 2016-04-xx
+## [1.4.2] - 2016-04-26
 
 ### Added
 - Status constants for Subscription and Payment models.
+- Added PDF with official documentation for notification API (in german) for February 2016.
 
 ## [1.4.1] - 2016-04-14
 
