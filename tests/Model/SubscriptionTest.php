@@ -16,9 +16,11 @@ class SubscriptionTest extends \PHPUnit_Framework_TestCase
     public static function dataProviderTestSubscriptionRunning()
     {
         return array(
-            array('active', true),
-            array('trial', true),
-            array('canceled', false),
+            array(Subscription::SUBSCRIPTION_STATUS_ACTIVE, true),
+            array(Subscription::SUBSCRIPTION_STATUS_INACTIVE, false),
+            array(Subscription::SUBSCRIPTION_STATUS_TRIAL, true),
+            array(Subscription::SUBSCRIPTION_STATUS_CANCELED, true),
+            array(Subscription::SUBSCRIPTION_STATUS_CLOSED, false),
             array('bogus', false)
         );
     }

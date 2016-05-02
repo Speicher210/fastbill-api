@@ -4,6 +4,14 @@ All Notable changes to `speicher210/fastbill-api` will be documented in this fil
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [1.4.3] - 2016-05-02
+
+### Added 
+- More Subscription statuses.
+
+### Changed
+- Minor [BC BREAK] The Subscription `isRunning` method now returns `true` for `canceled` status. 
+
 ## [1.4.2] - 2016-04-26
 
 ### Added
