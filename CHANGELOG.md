@@ -4,6 +4,11 @@ All Notable changes to `speicher210/fastbill-api` will be documented in this fil
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [1.4.4] - 2016-05-03
+
+### Added
+- Added SubscriptionReactivatedNotification model.
+
 ## [1.4.3] - 2016-05-02
 
 ### Added 
