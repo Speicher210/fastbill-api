@@ -9,7 +9,6 @@ use Speicher210\Fastbill\Api\Model\Notification\Customer\Customer;
  */
 interface SubscriptionNotificationPayloadInterface
 {
-
     /**
      * Get the customer.
      *
@@ -35,7 +34,7 @@ interface SubscriptionNotificationPayloadInterface
     /**
      * Set the subscription.
      *
-     * @param SubscriptionTrait $subscription
+     * @param Subscription $subscription
      * @return SubscriptionNotificationPayloadInterface
      */
     public function setSubscription($subscription);

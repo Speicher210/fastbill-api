@@ -220,7 +220,7 @@ class SubscriptionService extends AbstractService
     /**
      * Create a secure link for a subscription.
      *
-     * @param integer $subscriptionId The subscription ID for witch to create the secure link.
+     * @param integer $subscriptionId The subscription ID for which to create the secure link.
      * @return CreateSecureLink\ApiResponse
      */
     public function createSecureLink($subscriptionId)
