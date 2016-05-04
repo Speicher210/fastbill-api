@@ -5,6 +5,7 @@ namespace Speicher210\Fastbill\Api\Service\Article;
 use Speicher210\Fastbill\Api\AbstractService;
 use Speicher210\Fastbill\Api\Model\Article;
 use Speicher210\Fastbill\Api\Model\Customer;
+use Speicher210\Fastbill\Api\Model\Subscription;
 
 /**
  * Service for articles.
@@ -48,20 +49,27 @@ class ArticleService extends AbstractService
         return isset($articles[0]) ? $articles[0] : null;
     }
 
+    /**
+     * Get the article checkout URL.
+     *
+     * @param Article $article The article.
+     * @param Customer|null $customer The customer.
+     * @return string
+     */
     public function getArticleCheckoutURL(Article $article, Customer $customer = null)
     {
         if ($customer === null) {
             return $article->getCheckoutUrl();
         }
 
-        return $this->generateCheckoutURLForCustomer($customer->getHash(), $article->getArticleNumber());
+        return $this->generateCheckoutURLForCustomer($customer->getCustomerId(), $article->getArticleNumber());
     }
 
     /**
      * Get the checkout URL for an article.
      *
      * @param string $articleNumber Article number of the article to get the checkout URL.
-     * @param Customer $customer The customer for witch the checkout URL should be created.
+     * @param Customer $customer The customer for which the checkout URL should be created.
      * @return string
      */
     public function getArticleNumberCheckoutURL($articleNumber, Customer $customer = null)
@@ -80,7 +88,7 @@ class ArticleService extends AbstractService
      * @deprecated Use getArticleNumberCheckoutURL
      *
      * @param string $articleNumber Article number of the article to get the checkout URL.
-     * @param Customer $customer The customer for witch the checkout URL should be created.
+     * @param Customer $customer The customer for which the checkout URL should be created.
      * @return string
      */
     public function getCheckoutURL($articleNumber, Customer $customer = null)
@@ -91,16 +99,45 @@ class ArticleService extends AbstractService
     /**
      * Get the checkout URL of an article for a customer.
      *
-     * @param string $customerHash The customer hash.
+     * @param string $customerId The customer ID.
      * @param string $articleNumber The article number.
      * @return string
      */
-    protected function generateCheckoutURLForCustomer($customerHash, $articleNumber)
+    protected function generateCheckoutURLForCustomer($customerId, $articleNumber)
     {
         return sprintf(
             'https://automatic.fastbill.com/checkout/0/%s/%s/%s',
             $this->transport->getCredentials()->getAccountHash(),
-            $customerHash,
+            $customerId,
+            $articleNumber
+        );
+    }
+
+    /**
+     * Get the checkout URL to change a product for a subscription.
+     *
+     * @param Subscription $subscription The subscription.
+     * @param Article $article The new article.
+     * @return string
+     */
+    public function getSubscriptionProductChangeURL(Subscription $subscription, Article $article)
+    {
+        return $this->generateSubscriptionProductChangeURL($subscription->getSubscriptionId(), $article->getArticleNumber());
+    }
+
+    /**
+     * Get the checkout URL to change a product for a subscription.
+     *
+     * @param string $subscriptionId The subscription ID.
+     * @param string $articleNumber The new article number.
+     * @return string
+     */
+    protected function generateSubscriptionProductChangeURL($subscriptionId, $articleNumber)
+    {
+        return sprintf(
+            'https://automatic.fastbill.com/checkout/0/%s/%s/%s',
+            $this->transport->getCredentials()->getAccountHash(),
+            $subscriptionId,
             $articleNumber
         );
     }

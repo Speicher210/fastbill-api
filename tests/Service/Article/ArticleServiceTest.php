@@ -7,6 +7,7 @@ use Speicher210\Fastbill\Api\ApiCredentials;
 use Speicher210\Fastbill\Api\Model\Article;
 use Speicher210\Fastbill\Api\Model\Customer;
 use Speicher210\Fastbill\Api\Model\Feature;
+use Speicher210\Fastbill\Api\Model\Subscription;
 use Speicher210\Fastbill\Api\Model\Translation;
 use Speicher210\Fastbill\Api\Model\TranslationText;
 use Speicher210\Fastbill\Api\Service\Article\ArticleService;
@@ -61,10 +62,10 @@ class ArticleServiceTest extends AbstractServiceTest
         $article = new Article();
         $article->setArticleNumber('1');
         $customer = new Customer();
-        $customer->setHash('customer-hash');
+        $customer->setCustomerId(27);
 
         $this->assertSame(
-            'https://automatic.fastbill.com/checkout/0/account-hash/customer-hash/1',
+            'https://automatic.fastbill.com/checkout/0/account-hash/27/1',
             $articleService->getArticleCheckoutURL($article, $customer)
         );
     }
@@ -96,11 +97,37 @@ class ArticleServiceTest extends AbstractServiceTest
         $articleService = $this->getServiceToTest();
 
         $customer = new Customer();
-        $customer->setHash('customer-hash');
+        $customer->setCustomerId(27);
 
         $this->assertSame(
-            'https://automatic.fastbill.com/checkout/0/account-hash/customer-hash/1',
+            'https://automatic.fastbill.com/checkout/0/account-hash/27/1',
             $articleService->getArticleNumberCheckoutURL('1', $customer)
+        );
+    }
+
+    public function testGetSubscriptionProductChangeURL()
+    {
+        /** @var ArticleService $articleService */
+        $apiCredentials = new ApiCredentials('email@test.com', 'api-key', 'account-hash');
+
+        /** @var ArticleService $articleService */
+        $transportMock = $this->getMock(TransportInterface::class);
+        $transportMock
+            ->expects($this->any())
+            ->method('getCredentials')
+            ->willReturn($apiCredentials);
+        $serializerMock = $this->getMock(SerializerInterface::class);
+        $articleService = new ArticleService($transportMock, $serializerMock);
+
+        $subscription = new Subscription();
+        $subscription->setSubscriptionId(72);
+
+        $article = new Article();
+        $article->setArticleNumber('MY_PRODUCT');
+
+        $this->assertSame(
+            'https://automatic.fastbill.com/checkout/0/account-hash/72/MY_PRODUCT',
+            $articleService->getSubscriptionProductChangeURL($subscription, $article)
         );
     }
 

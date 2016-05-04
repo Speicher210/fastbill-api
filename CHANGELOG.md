@@ -4,6 +4,11 @@ All Notable changes to `speicher210/fastbill-api` will be documented in this fil
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [1.4.x] - 2016-xx-xx
+
+### Added
+- API function to get the URL for changing the product of a subscription.
+
 ## [1.4.4] - 2016-05-03
 
 ### Added
