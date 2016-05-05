@@ -126,7 +126,7 @@ class ArticleServiceTest extends AbstractServiceTest
         $article->setArticleNumber('MY_PRODUCT');
 
         $this->assertSame(
-            'https://automatic.fastbill.com/checkout/0/account-hash/72/MY_PRODUCT',
+            'https://automatic.fastbill.com/change/account-hash/72/MY_PRODUCT',
             $articleService->getSubscriptionProductChangeURL($subscription, $article)
         );
     }

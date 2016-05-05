@@ -135,7 +135,7 @@ class ArticleService extends AbstractService
     protected function generateSubscriptionProductChangeURL($subscriptionId, $articleNumber)
     {
         return sprintf(
-            'https://automatic.fastbill.com/checkout/0/%s/%s/%s',
+            'https://automatic.fastbill.com/change/%s/%s/%s',
             $this->transport->getCredentials()->getAccountHash(),
             $subscriptionId,
             $articleNumber
