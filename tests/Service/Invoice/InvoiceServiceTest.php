@@ -91,7 +91,7 @@ class InvoiceServiceTest extends AbstractServiceTest
         $expectedInvoice->setSubscriptionInvoiceCounter(1);
         $expectedInvoice->setInvoiceNumber('1');
         $expectedInvoice->setOutstandingAmount('0,00');
-        $expectedInvoice->setPaidDate(new \DateTime('0000-00-00 00:00:00'));
+        $expectedInvoice->setPaidDate(null);
         $expectedInvoice->setIsCanceled(1);
         $expectedInvoice->setInvoiceDate(new \DateTime('2015-10-22 00:00:00'));
         $expectedInvoice->setDueDate(new \DateTime('2015-11-04 00:00:00'));

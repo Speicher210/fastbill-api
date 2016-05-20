@@ -12,7 +12,7 @@ class DateHandler extends JMSDateHandler
      */
     public function deserializeDateTimeFromJson(JsonDeserializationVisitor $visitor, $data, array $type)
     {
-        if ('' === $data || null === $data) {
+        if ('' === $data || null === $data || '0000-00-00 00:00:00' === $data) {
             return null;
         }
 

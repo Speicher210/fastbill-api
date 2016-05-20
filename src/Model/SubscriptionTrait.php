@@ -65,7 +65,7 @@ trait SubscriptionTrait
      *
      * @var \DateTime
      *
-     * @JMS\Type("string")
+     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'UTC'>")
      * @JMS\SerializedName("CANCELLATION_DATE")
      */
     protected $cancellationDate;
