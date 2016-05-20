@@ -5,7 +5,6 @@ namespace Speicher210\Fastbill\Api\Service\Subscription\ChangeArticle;
 use JMS\Serializer\Annotation as JMS;
 use Speicher210\Fastbill\Api\AbstractRequestData;
 use Speicher210\Fastbill\Api\Model\Addon;
-use Speicher210\Fastbill\Api\Model\Coupon;
 use Speicher210\Fastbill\Api\Model\Feature;
 
 /**
@@ -94,11 +93,11 @@ final class RequestData extends AbstractRequestData
     protected $resetAddons;
 
     /**
-     * The coupon.
+     * The coupon code.
      *
-     * @var Coupon
+     * @var string
      *
-     * @JMS\Type("Speicher210\Fastbill\Api\Model\Coupon")
+     * @JMS\Type("string")
      * @JMS\SerializedName("COUPON")
      */
     protected $coupon;
@@ -316,7 +315,7 @@ final class RequestData extends AbstractRequestData
      */
     public function isResetAddons()
     {
-        return (boolean) $this->resetAddons;
+        return (boolean)$this->resetAddons;
     }
 
     /**
@@ -327,15 +326,15 @@ final class RequestData extends AbstractRequestData
      */
     public function setResetAddons($resetAddons)
     {
-        $this->resetAddons = (integer) (boolean) $resetAddons;
+        $this->resetAddons = (integer)(boolean)$resetAddons;
 
         return $this;
     }
 
     /**
-     * Get the coupon.
+     * Get the coupon code.
      *
-     * @return Coupon
+     * @return string
      */
     public function getCoupon()
     {
@@ -343,9 +342,9 @@ final class RequestData extends AbstractRequestData
     }
 
     /**
-     * Set the coupon.
+     * Set the coupon code.
      *
-     * @param Coupon $coupon The coupon.
+     * @param string $coupon The coupon code.
      * @return RequestData
      */
     public function setCoupon($coupon)
@@ -408,7 +407,7 @@ final class RequestData extends AbstractRequestData
      */
     public function getSuppressMail()
     {
-        return (boolean) $this->suppressMail;
+        return (boolean)$this->suppressMail;
     }
 
     /**
@@ -419,7 +418,7 @@ final class RequestData extends AbstractRequestData
      */
     public function setSuppressMail($suppressMail)
     {
-        $this->suppressMail = (integer) (boolean) $suppressMail;
+        $this->suppressMail = (integer)(boolean)$suppressMail;
 
         return $this;
     }
