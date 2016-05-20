@@ -104,7 +104,7 @@ trait CouponTrait
      *
      * @var \DateTime
      *
-     * @JMS\Type("DateTime<'Y-m-d', 'UTC'>")
+     * @JMS\Type("DateTime<'Y-m-d'>")
      * @JMS\SerializedName("VALID_FROM")
      */
     protected $validFrom;
@@ -114,7 +114,7 @@ trait CouponTrait
      *
      * @var \DateTime
      *
-     * @JMS\Type("DateTime<'Y-m-d', 'UTC'>")
+     * @JMS\Type("DateTime<'Y-m-d'>")
      * @JMS\SerializedName("VALID_TO")
      */
     protected $validTo;

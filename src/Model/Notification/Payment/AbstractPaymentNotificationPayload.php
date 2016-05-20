@@ -46,7 +46,7 @@ abstract class AbstractPaymentNotificationPayload extends AbstractNotificationPa
      *
      * @var \DateTime
      *
-     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'UTC'>")
+     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'Europe/Berlin'>")
      * @JMS\SerializedName("created")
      */
     protected $created;

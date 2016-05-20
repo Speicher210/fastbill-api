@@ -110,6 +110,44 @@ class SubscriptionServiceTest extends AbstractServiceTest
         $this->assertEquals($expectedCreateResponse, $response);
     }
 
+    public function testCreateSubscriptionWithStartAndExpirationDate()
+    {
+        /** @var SubscriptionService $subscriptionService */
+        $subscriptionService = $this->getServiceToTest();
+
+        $data = new CreateRequestData(60, 996423);
+        $data->setSubscriptionStart(new \DateTime('2016-05-20 01:20:30'));
+        $data->setCancellationDate(new \DateTime('2016-06-20 10:30:45'));
+        $data->setNextEvent(new \DateTime('2016-06-20 10:30:45'));
+
+        $apiResponse = $subscriptionService->createSubscription($data);
+
+        $this->assertInstanceOf(CreateApiResponse::class, $apiResponse);
+        /** @var CreateResponse $response */
+        $response = $apiResponse->getResponse();
+
+        $expectedCreateResponse = new CreateResponse();
+        $expectedCreateResponse->setSubscriptionId(503772);
+        $expectedCreateResponse->setHash('f0bd1772132b8711650ab2b8623bd575');
+        $expectedCreateResponse->setInvoiceId(845277);
+        $expectedCreateResponse->setPayPalUrl('https://automatic.fastbill.com/paypal');
+        $expectedCreateResponse->setStatus('success');
+        $this->assertEquals($expectedCreateResponse, $response);
+    }
+
+    public function testCreateSubscriptionWithStartAndExpirationDateInDifferentTimezone()
+    {
+        /** @var SubscriptionService $subscriptionService */
+        $subscriptionService = $this->getServiceToTest();
+
+        $data = new CreateRequestData(60, 996423);
+        $data->setSubscriptionStart(new \DateTime('2016-05-20 01:20:30', new \DateTimeZone('America/Costa_Rica')));
+        $data->setCancellationDate(new \DateTime('2016-06-20 10:30:45', new \DateTimeZone('Asia/Seoul')));
+        $data->setNextEvent(new \DateTime('2016-06-20 10:30:45', new \DateTimeZone('Australia/Melbourne')));
+
+        $subscriptionService->createSubscription($data);
+    }
+
     public function testUpdateSubscription()
     {
         /** @var SubscriptionService $subscriptionService */
@@ -190,8 +228,11 @@ class SubscriptionServiceTest extends AbstractServiceTest
         $data = new GetUsageRequestData(503772);
         $data->setSubscriptionStart(new \DateTime('2015-10-21 00:00:00'));
         $data->setSubscriptionEnd(new \DateTime('2015-11-29 00:00:00'));
-        $apiResponse = $subscriptionService->getSubscriptionUsageData($data->getSubscriptionId(),
-            $data->getSubscriptionStart(), $data->getSubscriptionEnd());
+        $apiResponse = $subscriptionService->getSubscriptionUsageData(
+            $data->getSubscriptionId(),
+            $data->getSubscriptionStart(),
+            $data->getSubscriptionEnd()
+        );
 
         $this->assertInstanceOf(GetUsageDataApiResponse::class, $apiResponse);
         /** @var GetUsageDataResponse $response */

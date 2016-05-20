@@ -2,11 +2,24 @@
 
 namespace Speicher210\Fastbill\Api\Serializer\Handler;
 
+use JMS\Serializer\Context;
 use JMS\Serializer\Handler\DateHandler as JMSDateHandler;
 use JMS\Serializer\JsonDeserializationVisitor;
+use JMS\Serializer\VisitorInterface;
 
 class DateHandler extends JMSDateHandler
 {
+    /**
+     * {@inheritdoc}
+     */
+    public function serializeDateTime(VisitorInterface $visitor, \DateTime $date, array $type, Context $context)
+    {
+        // All dates send to Fastbill should be in Europe/Berlin timezone.
+        $date->setTimezone(new \DateTimeZone('Europe/Berlin'));
+
+        return parent::serializeDateTime($visitor, $date, $type, $context);
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -16,6 +29,13 @@ class DateHandler extends JMSDateHandler
             return null;
         }
 
-        return parent::deserializeDateTimeFromJson($visitor, $data, $type);
+        // We want to always show the response in the UTC timezone.
+        $dateTime = parent::deserializeDateTimeFromJson($visitor, $data, $type);
+
+        if ($dateTime instanceof \DateTime) {
+            $dateTime->setTimezone(new \DateTimeZone('UTC'));
+        }
+
+        return $dateTime;
     }
 }

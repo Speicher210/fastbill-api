@@ -16,7 +16,7 @@ class Subscription
      *
      * @var \DateTime
      *
-     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'UTC'>")
+     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'Europe/Berlin'>")
      * @JMS\SerializedName("start_date")
      */
     protected $startDate;
@@ -26,7 +26,7 @@ class Subscription
      *
      * @var \DateTime
      *
-     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'UTC'>")
+     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'Europe/Berlin'>")
      * @JMS\SerializedName("last_event")
      */
     protected $lastEvent;
@@ -36,7 +36,7 @@ class Subscription
      *
      * @var \DateTime
      *
-     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'UTC'>")
+     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'Europe/Berlin'>")
      * @JMS\SerializedName("next_event")
      */
     protected $nextEvent;
@@ -46,7 +46,7 @@ class Subscription
      *
      * @var \DateTime
      *
-     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'UTC'>")
+     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'Europe/Berlin'>")
      * @JMS\SerializedName("cancellation_date")
      */
     protected $cancellationDate;
@@ -66,7 +66,7 @@ class Subscription
      *
      * @var \DateTime
      *
-     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'UTC'>")
+     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'Europe/Berlin'>")
      * @JMS\SerializedName("expiration_date")
      */
     protected $expirationDate;

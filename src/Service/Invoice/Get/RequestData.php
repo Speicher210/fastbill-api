@@ -71,7 +71,7 @@ final class RequestData extends AbstractRequestData
      *
      * @var \DateTime
      *
-     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'UTC'>")
+     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'Europe/Berlin'>")
      * @JMS\SerializedName("START_DUE_DATE")
      */
     protected $startDate;
@@ -81,7 +81,7 @@ final class RequestData extends AbstractRequestData
      *
      * @var \DateTime
      *
-     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'UTC'>")
+     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'Europe/Berlin'>")
      * @JMS\SerializedName("END_DUE_DATE")
      */
     protected $endDate;

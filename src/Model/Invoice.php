@@ -374,7 +374,7 @@ class Invoice
      *
      * @var \DateTime
      *
-     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'UTC'>")
+     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'Europe/Berlin'>")
      * @JMS\SerializedName("PAID_DATE")
      */
     protected $paidDate;
@@ -404,7 +404,7 @@ class Invoice
      *
      * @var \DateTime
      *
-     * @JMS\Type("DateTime<'Y-m-d', 'UTC'>")
+     * @JMS\Type("DateTime<'Y-m-d', 'Europe/Berlin'>")
      * @JMS\SerializedName("INVOICE_DATE")
      *
      */
@@ -414,7 +414,7 @@ class Invoice
      * The due date.
      *
      * We serialize it as string because of inconsistencies in the Fastbill API response.
-     * Depending on the customer, the due date may or may not hve a time component in the response.
+     * Depending on the customer, the due date may or may not have a time component in the response.
      *
      * @var \DateTime
      *
