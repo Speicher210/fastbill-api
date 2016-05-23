@@ -374,7 +374,7 @@ class Invoice
      *
      * @var \DateTime
      *
-     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'Europe/Berlin'>")
+     * @JMS\Type("DateTime<'Y-m-d H:i:s'>")
      * @JMS\SerializedName("PAID_DATE")
      */
     protected $paidDate;
@@ -404,9 +404,8 @@ class Invoice
      *
      * @var \DateTime
      *
-     * @JMS\Type("DateTime<'Y-m-d', 'Europe/Berlin'>")
+     * @JMS\Type("DateTime<'Y-m-d'>")
      * @JMS\SerializedName("INVOICE_DATE")
-     *
      */
     protected $invoiceDate;
 

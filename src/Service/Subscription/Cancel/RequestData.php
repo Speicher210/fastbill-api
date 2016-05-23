@@ -25,7 +25,7 @@ final class RequestData extends AbstractRequestData
      *
      * @var \DateTime
      *
-     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'UTC'>")
+     * @JMS\Type("DateTime<'Y-m-d H:i:s'>")
      * @JMS\SerializedName("cancellation_date")
      */
     protected $cancellationDate;

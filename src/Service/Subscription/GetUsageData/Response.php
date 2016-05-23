@@ -85,7 +85,7 @@ class Response extends AbstractResponse
      *
      * @var \DateTime
      *
-     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'Europe/Berlin'>")
+     * @JMS\Type("DateTime<'Y-m-d H:i:s'>")
      * @JMS\SerializedName("USAGE_DATE")
      */
     protected $usageDate;
@@ -95,7 +95,7 @@ class Response extends AbstractResponse
      *
      * @var \DateTime
      *
-     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'Europe/Berlin'>")
+     * @JMS\Type("DateTime<'Y-m-d H:i:s'>")
      * @JMS\SerializedName("CREATED")
      */
     protected $created;

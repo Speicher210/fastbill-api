@@ -54,7 +54,7 @@ trait CustomerTrait
      *
      * @var \DateTime
      *
-     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'Europe/Berlin'>")
+     * @JMS\Type("DateTime<'Y-m-d H:i:s'>")
      * @JMS\SerializedName("CREATED")
      */
     protected $created;
@@ -234,7 +234,7 @@ trait CustomerTrait
      *
      * @var \DateTime
      *
-     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'Europe/Berlin'>")
+     * @JMS\Type("DateTime<'Y-m-d H:i:s'>")
      * @JMS\SerializedName("BANK_ACCOUNT_MANDATE_REFERENCE_DATE")
      */
     protected $bankAccountMandateReferenceDate;
@@ -403,7 +403,7 @@ trait CustomerTrait
      *
      * @var \DateTime
      *
-     * @JMS\Type("DateTime<'Y-m-d', 'Europe/Berlin'>")
+     * @JMS\Type("DateTime<'Y-m-d'>")
      * @JMS\SerializedName("BIRTHDAY")
      */
     protected $birthday;
@@ -463,7 +463,7 @@ trait CustomerTrait
      *
      * @var \DateTime
      *
-     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'Europe/Berlin'>")
+     * @JMS\Type("DateTime<'Y-m-d H:i:s'>")
      * @JMS\SerializedName("LASTUPDATE")
      */
     protected $lastUpdate;

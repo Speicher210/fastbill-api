@@ -45,7 +45,7 @@ trait SubscriptionTrait
      *
      * @var \DateTime
      *
-     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'UTC'>")
+     * @JMS\Type("DateTime<'Y-m-d H:i:s'>")
      * @JMS\SerializedName("START")
      */
     protected $subscriptionStart;
@@ -55,7 +55,7 @@ trait SubscriptionTrait
      *
      * @var \DateTime
      *
-     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'UTC'>")
+     * @JMS\Type("DateTime<'Y-m-d H:i:s'>")
      * @JMS\SerializedName("NEXT_EVENT")
      */
     protected $nextEvent;
@@ -65,7 +65,7 @@ trait SubscriptionTrait
      *
      * @var \DateTime
      *
-     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'UTC'>")
+     * @JMS\Type("DateTime<'Y-m-d H:i:s'>")
      * @JMS\SerializedName("CANCELLATION_DATE")
      */
     protected $cancellationDate;
@@ -153,7 +153,7 @@ trait SubscriptionTrait
      *
      * @var \DateTime
      *
-     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'UTC'>")
+     * @JMS\Type("DateTime<'Y-m-d H:i:s'>")
      * @JMS\SerializedName("LAST_EVENT")
      */
     protected $lastEvent;
@@ -181,7 +181,7 @@ trait SubscriptionTrait
      *
      * @var \DateTime
      *
-     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'UTC'>")
+     * @JMS\Type("DateTime<'Y-m-d H:i:s'>")
      * @JMS\SerializedName("EXPIRATION_DATE")
      */
     protected $expirationDate;

@@ -10,6 +10,14 @@ use JMS\Serializer\VisitorInterface;
 class DateHandler extends JMSDateHandler
 {
     /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct('Y-m-d H:i:s', 'Europe/Berlin', true);
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function serializeDateTime(VisitorInterface $visitor, \DateTime $date, array $type, Context $context)

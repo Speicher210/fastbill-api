@@ -15,7 +15,7 @@ class Response extends AbstractResponse
      *
      * @var \DateTime
      *
-     * @JMS\Type("DateTime<'Y-m-d H:i:s', 'Europe/Berlin'>")
+     * @JMS\Type("DateTime<'Y-m-d H:i:s'>")
      * @JMS\SerializedName("cancellation_date")
      */
     protected $cancellationDate;
