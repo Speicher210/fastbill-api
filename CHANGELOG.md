@@ -2,12 +2,14 @@
 
 All Notable changes to `speicher210/fastbill-api` will be documented in this file.
 
-Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
-
-## [1.4.x] - 2016-xx-xx
+## [1.5.0] - 2016-05-23
 
 ### Added
 - API function to get the URL for changing the product of a subscription.
+
+### Changed
+- [BC BREAK] Handle timezone of Fastbill hard coded value to `Europe/Berlin`.
+- Set invalid `\DateTime` values to `NULL`.
 
 ## [1.4.4] - 2016-05-03
 
