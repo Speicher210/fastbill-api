@@ -25,7 +25,8 @@ class DateHandler extends JMSDateHandler
      */
     public function deserializeDateTimeFromJson(JsonDeserializationVisitor $visitor, $data, array $type)
     {
-        if ('' === $data || null === $data || '0000-00-00 00:00:00' === $data) {
+        // Handle empty or invalid date / datetime values.
+        if ('' === $data || null === $data || strpos($data, '0000-00-00') !== false) {
             return null;
         }
 
