@@ -188,7 +188,7 @@ class CustomerServiceTest extends AbstractServiceTest
     {
         /** @var CustomerTrait $customer */
         $customer->setCustomerId($identifier)
-            ->setCustomerNumber($identifier)
+            ->setCustomerNumber('cn_' . $identifier)
             ->setDaysForPayment($identifier)
             ->setCustomerExternalUid('e' . $identifier)
             ->setCreated(new \DateTime(sprintf('2015-10-23 10:17:%02d', $identifier)))

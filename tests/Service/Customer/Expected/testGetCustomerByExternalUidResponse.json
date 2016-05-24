@@ -10,7 +10,7 @@
     "CUSTOMERS": [
       {
         "CUSTOMER_ID": "1",
-        "CUSTOMER_NUMBER": "1",
+        "CUSTOMER_NUMBER": "cn_1",
         "DAYS_FOR_PAYMENT": "1",
         "CREATED": "2015-10-23 12:17:01",
         "PAYMENT_TYPE": "1",

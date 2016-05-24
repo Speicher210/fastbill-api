@@ -42,9 +42,9 @@ class Customer
     /**
      * The own customer number.
      *
-     * @var integer
+     * @var string
      *
-     * @JMS\Type("integer")
+     * @JMS\Type("string")
      * @JMS\SerializedName("customer_number")
      */
     protected $customerNumber;

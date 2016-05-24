@@ -6,6 +6,7 @@ All Notable changes to `speicher210/fastbill-api` will be documented in this fil
 
 ### Fixed
 - Serialization type for `article_code` in Subscription notification model.
+- Serialization type for `customer_number` in Customer(s) model.
 
 ## [1.5.0] - 2016-05-23
 

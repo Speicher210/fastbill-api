@@ -82,9 +82,9 @@ class Invoice
     /**
      * The own customer number.
      *
-     * @var integer
+     * @var string
      *
-     * @JMS\Type("integer")
+     * @JMS\Type("string")
      * @JMS\SerializedName("CUSTOMER_NUMBER")
      */
     protected $customerNumber;
