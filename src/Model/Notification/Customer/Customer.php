@@ -22,7 +22,7 @@ class Customer
     /**
      * The external customer ID.
      *
-     * @var integer
+     * @var string
      *
      * @JMS\Type("string")
      * @JMS\SerializedName("customer_ext_uid")

@@ -63,7 +63,7 @@ class CustomerServiceTest extends AbstractServiceTest
         /** @var CustomerService $customerService */
         $customerService = $this->getServiceToTest();
 
-        $actualCustomer = $customerService->getCustomerByExternalUid(1);
+        $actualCustomer = $customerService->getCustomerByExternalUid('e1');
 
         $expectedCustomer = new Customer();
         $expectedCustomer = $this->getCustomerForTesting($expectedCustomer, 1);

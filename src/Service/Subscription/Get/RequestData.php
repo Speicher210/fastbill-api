@@ -43,9 +43,9 @@ final class RequestData extends AbstractRequestData
     /**
      * The customer external ID.
      *
-     * @var integer
+     * @var string
      *
-     * @JMS\Type("integer")
+     * @JMS\Type("string")
      * @JMS\SerializedName("CUSTOMER_EXT_UID")
      */
     protected $externalCustomerId;

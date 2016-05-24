@@ -2,7 +2,7 @@
   "REQUEST": {
     "SERVICE": "customer.get",
     "FILTER": {
-      "CUSTOMER_EXT_UID": "1"
+      "CUSTOMER_EXT_UID": "e1"
     },
     "LIMIT": 100
   },
