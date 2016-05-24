@@ -42,9 +42,9 @@ trait SubscriptionTrait
     /**
      * The subscription article code.
      *
-     * @var integer
+     * @var string
      *
-     * @JMS\Type("integer")
+     * @JMS\Type("string")
      * @JMS\SerializedName("article_code")
      */
     protected $articleCode;
@@ -131,7 +131,7 @@ trait SubscriptionTrait
     /**
      * Get the article code.
      *
-     * @return int
+     * @return string
      */
     public function getArticleCode()
     {
@@ -141,7 +141,7 @@ trait SubscriptionTrait
     /**
      * Set the article code.
      *
-     * @param integer $articleCode The article code.
+     * @param string $articleCode The article code.
      * @return $this
      */
     public function setArticleCode($articleCode)

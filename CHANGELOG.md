@@ -2,6 +2,11 @@
 
 All Notable changes to `speicher210/fastbill-api` will be documented in this file.
 
+## [1.5.1] - 2016-05-24
+
+### Fixed
+- Serialization type for `article_code` in Subscription notification model.
+
 ## [1.5.0] - 2016-05-23
 
 ### Added
