@@ -16,9 +16,9 @@ class Request extends AbstractRequest
      * @var array
      *
      * @JMS\Type("Speicher210\Fastbill\Api\Service\Subscription\Reactivate\RequestData")
-     * @JMS\SerializedName("FILTER")
+     * @JMS\SerializedName("DATA")
      */
-    protected $filter;
+    protected $data;
 
     /**
      * Constructor.
@@ -28,7 +28,7 @@ class Request extends AbstractRequest
     public function __construct(RequestData $requestData = null)
     {
         parent::__construct();
-        $this->filter = $requestData;
+        $this->data = $requestData;
     }
 
     /**

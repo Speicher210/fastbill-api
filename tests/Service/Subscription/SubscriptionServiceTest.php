@@ -28,6 +28,7 @@ use Speicher210\Fastbill\Api\Service\Subscription\GetUsageData\Response as GetUs
 use Speicher210\Fastbill\Api\Service\Subscription\Postpone\ApiResponse as PostponeApiResponse;
 use Speicher210\Fastbill\Api\Service\Subscription\Postpone\Response as PostponeResponse;
 use Speicher210\Fastbill\Api\Service\Subscription\Reactivate\ApiResponse as ReactivateApiResponse;
+use Speicher210\Fastbill\Api\Service\Subscription\Reactivate\Response as ReactivateResponse;
 use Speicher210\Fastbill\Api\Service\Subscription\Renew\ApiResponse as RenewApiResponse;
 use Speicher210\Fastbill\Api\Service\Subscription\Renew\Response as RenewResponse;
 use Speicher210\Fastbill\Api\Service\Subscription\SetAddon\ApiResponse as SetAddonApiResponse;
@@ -362,6 +363,13 @@ class SubscriptionServiceTest extends AbstractServiceTest
 
         $apiResponse = $subscriptionService->reactivateSubscription(501982);
         $this->assertInstanceOf(ReactivateApiResponse::class, $apiResponse);
+
+        /** @var ReactivateResponse $response */
+        $response = $apiResponse->getResponse();
+
+        $expectedReactivateResponse = new ReactivateResponse();
+        $expectedReactivateResponse->setStatus('success');
+        $this->assertEquals($expectedReactivateResponse, $response);
     }
 
     /**
