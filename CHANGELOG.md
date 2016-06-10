@@ -2,10 +2,15 @@
 
 All Notable changes to `speicher210/fastbill-api` will be documented in this file.
 
-## [1.5.2] - 2016-06-10
+## [1.5.3] - 2016-06-10
 
 ### Changed
 - Minor [BC BREAK] The Subscription `isRunning` method now returns `false` for `canceled` status. This reverses the change in 1.4.3
+
+## [1.5.2] - 2016-06-01
+
+### Fixed
+- Fixed subscription reactivate request data.
 
 ## [1.5.1] - 2016-05-24
 

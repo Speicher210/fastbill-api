@@ -1,8 +1,11 @@
 {
   "REQUEST": {
     "SERVICE": "subscription.reactivate",
-    "FILTER": {
+    "DATA": {
       "SUBSCRIPTION_ID": "501982"
     }
+  },
+  "RESPONSE": {
+    "STATUS": "success"
   }
 }
