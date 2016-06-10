@@ -12,7 +12,7 @@ class Subscription
     const SUBSCRIPTION_STATUS_ACTIVE = 'active';
 
     /**
-     * After a payment failed.
+     * Inactive subscription, usually after a payment failed.
      */
     const SUBSCRIPTION_STATUS_INACTIVE = 'inactive';
 
@@ -22,12 +22,12 @@ class Subscription
     const SUBSCRIPTION_STATUS_TRIAL = 'trial';
 
     /**
-     * If the subscription has a cancellation date set.
+     * If it has reached the cancellation date.
      */
     const SUBSCRIPTION_STATUS_CANCELED = 'canceled';
 
     /**
-     * If it has reached the cancellation date.
+     * If the subscription is closed.
      */
     const SUBSCRIPTION_STATUS_CLOSED = 'closed';
 
@@ -40,8 +40,7 @@ class Subscription
     {
         $runningStatuses = array(
             self::SUBSCRIPTION_STATUS_ACTIVE,
-            self::SUBSCRIPTION_STATUS_TRIAL,
-            self::SUBSCRIPTION_STATUS_CANCELED
+            self::SUBSCRIPTION_STATUS_TRIAL
         );
 
         return in_array($this->getStatus(), $runningStatuses);

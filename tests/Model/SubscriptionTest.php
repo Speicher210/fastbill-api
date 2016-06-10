@@ -19,7 +19,7 @@ class SubscriptionTest extends \PHPUnit_Framework_TestCase
             array(Subscription::SUBSCRIPTION_STATUS_ACTIVE, true),
             array(Subscription::SUBSCRIPTION_STATUS_INACTIVE, false),
             array(Subscription::SUBSCRIPTION_STATUS_TRIAL, true),
-            array(Subscription::SUBSCRIPTION_STATUS_CANCELED, true),
+            array(Subscription::SUBSCRIPTION_STATUS_CANCELED, false),
             array(Subscription::SUBSCRIPTION_STATUS_CLOSED, false),
             array('bogus', false)
         );
