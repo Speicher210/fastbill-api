@@ -2,10 +2,11 @@
 
 All Notable changes to `speicher210/fastbill-api` will be documented in this file.
 
-## [1.5.4] - 2016-06-XX
+## [1.5.X] - 2016-06-XX
 
 ### Added
 - Method to easily get one subscription.
+- Added the coupon to the subscription model.
 
 ## [1.5.3] - 2016-06-10
 

@@ -149,6 +149,16 @@ trait SubscriptionTrait
     protected $invoiceTitle;
 
     /**
+     * The coupon applied to the subscription.
+     *
+     * @var Coupon
+     *
+     * @JMS\Type("Speicher210\Fastbill\Api\Model\Coupon")
+     * @JMS\SerializedName("COUPON")
+     */
+    protected $coupon;
+
+    /**
      * The last event date and time.
      *
      * @var \DateTime
@@ -459,6 +469,8 @@ trait SubscriptionTrait
     }
 
     /**
+     * Get the plan.
+     *
      * @return SubscriptionPlanObject
      */
     public function getPlan()
@@ -467,7 +479,9 @@ trait SubscriptionTrait
     }
 
     /**
-     * @param SubscriptionPlanObject $plan
+     * Set the plan.
+     *
+     * @param SubscriptionPlanObject $plan The plan.
      * @return $this
      */
     public function setPlan($plan)
@@ -494,6 +508,26 @@ trait SubscriptionTrait
         $this->invoiceTitle = $invoiceTitle;
 
         return $this;
+    }
+
+    /**
+     * Get the coupon for the subscription.
+     *
+     * @return Coupon
+     */
+    public function getCoupon()
+    {
+        return $this->coupon;
+    }
+
+    /**
+     * Set the coupon.
+     *
+     * @param Coupon $coupon The coupon to set.
+     */
+    public function setCoupon(Coupon $coupon)
+    {
+        $this->coupon = $coupon;
     }
 
     /**

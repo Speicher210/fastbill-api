@@ -2,6 +2,7 @@
 
 namespace Speicher210\Fastbill\Test\Api\Service\Subscription;
 
+use Speicher210\Fastbill\Api\Model\Coupon;
 use Speicher210\Fastbill\Api\Model\Subscription;
 use Speicher210\Fastbill\Api\Service\Subscription\Cancel\ApiResponse as CancelApiResponse;
 use Speicher210\Fastbill\Api\Service\Subscription\Cancel\Response as CancelResponse;
@@ -68,6 +69,14 @@ class SubscriptionServiceTest extends AbstractServiceTest
         $expectedSubscription->setCustomerId(321);
         $expectedSubscription->setSubscriptionTitle('title');
         $expectedSubscription->setCancellationDate(new \DateTime('2016-01-28 15:56:22'));
+
+        $coupon = new Coupon();
+        $coupon->setCode('TEST_COUPON');
+        $coupon->setTitle('Coupony');
+        $coupon->setDiscountPeriodUnit(Coupon::DISCOUNT_PERIOD_UNIT_EVENT);
+        $coupon->setDiscountPeriodAmount(3);
+        $coupon->setUsagesMax(1);
+        $expectedSubscription->setCoupon($coupon);
         $this->assertEquals($expectedSubscription, $subscriptionService->getSubscriptionById(123));
     }
 
