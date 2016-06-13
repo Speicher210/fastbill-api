@@ -72,6 +72,14 @@ class AbstractResponse implements ResponseInterface
     /**
      * {@inheritdoc}
      */
+    public function isStatusValid()
+    {
+        return $this->getStatus() === self::STATUS_VALID;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function isStatusInvalid()
     {
         return $this->getStatus() === self::STATUS_INVALID;

@@ -78,6 +78,22 @@ class CouponServiceTest extends AbstractServiceTest
         $this->assertEquals($expectedCheckResponse, $response);
     }
 
+    public function testIsCouponValidForValidCoupon()
+    {
+        /** @var CouponService $couponService */
+        $couponService = $this->getServiceToTest();
+
+        $this->assertTrue($couponService->isCouponValid('COUPON_VALID', 'ART_123'));
+    }
+
+    public function testIsCouponValidForInvalidCoupon()
+    {
+        /** @var CouponService $couponService */
+        $couponService = $this->getServiceToTest();
+
+        $this->assertFalse($couponService->isCouponValid('COUPON_INVALID', 'ART_123'));
+    }
+
     public function testCheckCouponThrowsExceptionIfCodeIsValidAndArticleIsNotValid()
     {
         /** @var CouponService $couponService */

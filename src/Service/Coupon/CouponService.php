@@ -52,4 +52,16 @@ class CouponService extends AbstractService
 
         return $this->sendRequest($request, Check\ApiResponse::class);
     }
+
+    /**
+     * Check if a coupon is valid or not.
+     *
+     * @param string $code The code to check.
+     * @param string $articleNumber The article number.
+     * @return boolean
+     */
+    public function isCouponValid($code, $articleNumber)
+    {
+        return $this->checkCoupon($code, $articleNumber)->getResponse()->isStatusValid();
+    }
 }

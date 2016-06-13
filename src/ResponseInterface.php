@@ -8,6 +8,7 @@ namespace Speicher210\Fastbill\Api;
 interface ResponseInterface
 {
     const STATUS_SUCCESS = 'success';
+    const STATUS_VALID = 'valid';
     const STATUS_INVALID = 'invalid';
 
     /**
@@ -44,6 +45,13 @@ interface ResponseInterface
      * @return boolean
      */
     public function isStatusSuccess();
+
+    /**
+     * Check if the status is valid or not.
+     *
+     * @return boolean
+     */
+    public function isStatusValid();
 
     /**
      * Check if the status is invalid or not.

@@ -7,6 +7,7 @@ All Notable changes to `speicher210/fastbill-api` will be documented in this fil
 ### Added
 - Method to easily get one subscription.
 - Added the coupon to the subscription model.
+- Added shortcut cu check is coupon is valid or not.
 
 ## [1.5.3] - 2016-06-10
 
