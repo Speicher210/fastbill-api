@@ -9,7 +9,6 @@ use JMS\Serializer\Annotation as JMS;
  */
 trait SubscriptionTrait
 {
-
     /**
      * The subscription ID.
      *
@@ -147,16 +146,6 @@ trait SubscriptionTrait
      * @JMS\SerializedName("INVOICE_TITLE")
      */
     protected $invoiceTitle;
-
-    /**
-     * The coupon applied to the subscription.
-     *
-     * @var Coupon
-     *
-     * @JMS\Type("Speicher210\Fastbill\Api\Model\Coupon")
-     * @JMS\SerializedName("COUPON")
-     */
-    protected $coupon;
 
     /**
      * The last event date and time.
@@ -508,26 +497,6 @@ trait SubscriptionTrait
         $this->invoiceTitle = $invoiceTitle;
 
         return $this;
-    }
-
-    /**
-     * Get the coupon for the subscription.
-     *
-     * @return Coupon
-     */
-    public function getCoupon()
-    {
-        return $this->coupon;
-    }
-
-    /**
-     * Set the coupon.
-     *
-     * @param Coupon $coupon The coupon to set.
-     */
-    public function setCoupon(Coupon $coupon)
-    {
-        $this->coupon = $coupon;
     }
 
     /**
