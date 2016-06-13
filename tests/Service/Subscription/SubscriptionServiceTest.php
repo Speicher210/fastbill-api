@@ -48,6 +48,29 @@ use Speicher210\Fastbill\Test\Api\Service\AbstractServiceTest;
 class SubscriptionServiceTest extends AbstractServiceTest
 {
 
+    public function testGetSubscriptionByIdReturnsNullIfThereIsNoSubscription()
+    {
+        /** @var SubscriptionService $subscriptionService */
+        $subscriptionService = $this->getServiceToTest();
+
+        $this->assertNull(
+            $subscriptionService->getSubscriptionById(123)
+        );
+    }
+
+    public function testGetSubscriptionByIdReturnsOneSubscription()
+    {
+        /** @var SubscriptionService $subscriptionService */
+        $subscriptionService = $this->getServiceToTest();
+
+        $expectedSubscription = new Subscription();
+        $expectedSubscription->setSubscriptionId(123);
+        $expectedSubscription->setCustomerId(321);
+        $expectedSubscription->setSubscriptionTitle('title');
+        $expectedSubscription->setCancellationDate(new \DateTime('2016-01-28 15:56:22'));
+        $this->assertEquals($expectedSubscription, $subscriptionService->getSubscriptionById(123));
+    }
+
     public function testGetSubscriptions()
     {
         /** @var SubscriptionService $subscriptionService */
@@ -65,12 +88,17 @@ class SubscriptionServiceTest extends AbstractServiceTest
         /** @var GetResponse $response */
         $response = $apiResponse->getResponse();
 
-        $expectedSubscription = new Subscription();
-        $expectedSubscription->setSubscriptionId(501982);
-        $expectedSubscription->setCustomerId(995443);
-        $expectedSubscription->setSubscriptionTitle('title');
-        $expectedSubscription->setCancellationDate(new \DateTime('2016-01-28 15:56:22'));
-        $this->assertEquals(array($expectedSubscription), $response->getSubscriptions());
+        $expectedSubscription1 = new Subscription();
+        $expectedSubscription1->setSubscriptionId(100);
+        $expectedSubscription1->setCustomerId(1);
+        $expectedSubscription1->setSubscriptionTitle('sub 1');
+        $expectedSubscription1->setCancellationDate(new \DateTime('2016-01-28 15:56:22'));
+        $expectedSubscription2 = new Subscription();
+        $expectedSubscription2->setSubscriptionId(101);
+        $expectedSubscription2->setCustomerId(2);
+        $expectedSubscription2->setSubscriptionTitle('sub 2');
+        $expectedSubscription2->setCancellationDate(new \DateTime('2016-01-28 15:56:25'));
+        $this->assertEquals(array($expectedSubscription1, $expectedSubscription2), $response->getSubscriptions());
     }
 
     public function testGetSubscriptionsWithoutCancellationDate()

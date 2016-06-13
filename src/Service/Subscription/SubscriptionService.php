@@ -4,12 +4,29 @@ namespace Speicher210\Fastbill\Api\Service\Subscription;
 
 use Speicher210\Fastbill\Api\AbstractService;
 use Speicher210\Fastbill\Api\Model\Feature;
+use Speicher210\Fastbill\Api\Model\Subscription;
 
 /**
  * Service for subscriptions.
  */
 class SubscriptionService extends AbstractService
 {
+    /**
+     * Get one subscription by using the Fastbill subscription ID.
+     *
+     * @param integer $subscriptionId The Fastbill subscription ID.
+     * @return Subscription|null
+     */
+    public function getSubscriptionById($subscriptionId)
+    {
+        $subscriptions = $this
+            ->getSubscriptions(null, null, null, $subscriptionId)
+            ->getResponse()
+            ->getSubscriptions();
+
+        return count($subscriptions) ? reset($subscriptions) : null;
+    }
+
     /**
      * Get the subscriptions.
      *
@@ -24,8 +41,7 @@ class SubscriptionService extends AbstractService
         $externalCustomerId = null,
         $subscriptionExternalId = null,
         $subscriptionId = null
-    )
-    {
+    ) {
         $requestData = new Get\RequestData();
         $requestData->setCustomerId($customerId);
         $requestData->setExternalCustomerId($externalCustomerId);
@@ -68,8 +84,7 @@ class SubscriptionService extends AbstractService
         $status = null,
         array $xAttributes = array(),
         array $features = array()
-    )
-    {
+    ) {
         $requestData = new Update\RequestData($subscriptionId);
 
         $requestData->setSubscriptionId($subscriptionId);
@@ -135,8 +150,7 @@ class SubscriptionService extends AbstractService
         $subscriptionId,
         \DateTime $subscriptionStart = null,
         \DateTime $subscriptionEnd = null
-    )
-    {
+    ) {
         $requestData = new GetUsageData\RequestData($subscriptionId);
 
         $requestData->setSubscriptionId($subscriptionId);
