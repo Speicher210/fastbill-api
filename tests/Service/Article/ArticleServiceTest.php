@@ -65,7 +65,7 @@ class ArticleServiceTest extends AbstractServiceTest
         $customer->setCustomerId(27);
 
         $this->assertSame(
-            'https://automatic.fastbill.com/checkout/0/account-hash/27/1',
+            'https://app.monsum.com/checkout/0/account-hash/27/1',
             $articleService->getArticleCheckoutURL($article, $customer)
         );
     }
@@ -86,7 +86,7 @@ class ArticleServiceTest extends AbstractServiceTest
         $articleService = $this->getServiceToTest();
 
         $this->assertSame(
-            'https://automatic.fastbill.com/purchase/aa9122707e4baf2090e23babe7473a79/1',
+            'https://app.monsum.com/purchase/aa9122707e4baf2090e23babe7473a79/1',
             $articleService->getArticleNumberCheckoutURL(1)
         );
     }
@@ -100,7 +100,7 @@ class ArticleServiceTest extends AbstractServiceTest
         $customer->setCustomerId(27);
 
         $this->assertSame(
-            'https://automatic.fastbill.com/checkout/0/account-hash/27/1',
+            'https://app.monsum.com/checkout/0/account-hash/27/1',
             $articleService->getArticleNumberCheckoutURL('1', $customer)
         );
     }
@@ -126,7 +126,7 @@ class ArticleServiceTest extends AbstractServiceTest
         $article->setArticleNumber('MY_PRODUCT');
 
         $this->assertSame(
-            'https://automatic.fastbill.com/change/account-hash/72/MY_PRODUCT',
+            'https://app.monsum.com/change/account-hash/72/MY_PRODUCT',
             $articleService->getSubscriptionProductChangeURL($subscription, $article)
         );
     }
@@ -164,7 +164,7 @@ class ArticleServiceTest extends AbstractServiceTest
         $expectedArticle->setReturnUrlSuccess('https://test.com/success');
         $expectedArticle->setReturnUrlCancel('https://test.com/cancel');
         $expectedArticle->setCheckoutUrl(
-            'https://automatic.fastbill.com/purchase/aa9122707e4baf2090e23babe7473a79/1'
+            'https://app.monsum.com/purchase/aa9122707e4baf2090e23babe7473a79/1'
         );
         $expectedArticle->addFeature(
             new Feature('code', 2, 'value')

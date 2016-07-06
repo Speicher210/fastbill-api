@@ -2,6 +2,14 @@
 
 All Notable changes to `speicher210/fastbill-api` will be documented in this file.
 
+## [1.5.5] - 2016-07-06
+
+### Added
+- Customer phone number for customer notifications.
+
+### Changed
+- Use app.monsum.com domain.
+
 ## [1.5.4] - 2016-06-13
 
 ### Added

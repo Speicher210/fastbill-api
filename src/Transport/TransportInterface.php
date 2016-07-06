@@ -9,7 +9,7 @@ use Speicher210\Fastbill\Api\ApiCredentials;
  */
 interface TransportInterface
 {
-    const BASE_URL = 'https://automatic.fastbill.com/api/1.0/api.php';
+    const BASE_URL = 'https://app.monsum.com/api/1.0/api.php';
 
     /**
      * Set the Fastbill API credentials.

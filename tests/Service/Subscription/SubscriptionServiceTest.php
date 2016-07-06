@@ -151,7 +151,7 @@ class SubscriptionServiceTest extends AbstractServiceTest
         $expectedCreateResponse->setSubscriptionId(503772);
         $expectedCreateResponse->setHash('f0bd1772132b8711650ab2b8623bd575');
         $expectedCreateResponse->setInvoiceId(845277);
-        $expectedCreateResponse->setPayPalUrl('https://automatic.fastbill.com/paypal');
+        $expectedCreateResponse->setPayPalUrl('https://app.monsum.com/paypal');
         $expectedCreateResponse->setStatus('success');
         $this->assertEquals($expectedCreateResponse, $response);
     }
@@ -176,7 +176,7 @@ class SubscriptionServiceTest extends AbstractServiceTest
         $expectedCreateResponse->setSubscriptionId(503772);
         $expectedCreateResponse->setHash('f0bd1772132b8711650ab2b8623bd575');
         $expectedCreateResponse->setInvoiceId(845277);
-        $expectedCreateResponse->setPayPalUrl('https://automatic.fastbill.com/paypal');
+        $expectedCreateResponse->setPayPalUrl('https://app.monsum.com/paypal');
         $expectedCreateResponse->setStatus('success');
         $this->assertEquals($expectedCreateResponse, $response);
     }

@@ -106,7 +106,7 @@ class ArticleService extends AbstractService
     protected function generateCheckoutURLForCustomer($customerId, $articleNumber)
     {
         return sprintf(
-            'https://automatic.fastbill.com/checkout/0/%s/%s/%s',
+            'https://app.monsum.com/checkout/0/%s/%s/%s',
             $this->transport->getCredentials()->getAccountHash(),
             $customerId,
             $articleNumber
@@ -135,7 +135,7 @@ class ArticleService extends AbstractService
     protected function generateSubscriptionProductChangeURL($subscriptionId, $articleNumber)
     {
         return sprintf(
-            'https://automatic.fastbill.com/change/%s/%s/%s',
+            'https://app.monsum.com/change/%s/%s/%s',
             $this->transport->getCredentials()->getAccountHash(),
             $subscriptionId,
             $articleNumber
