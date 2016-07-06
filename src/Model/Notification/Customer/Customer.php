@@ -160,6 +160,15 @@ class Customer
     protected $email;
 
     /**
+     * The phone number of the customer.
+     *
+     * @var string
+     * @JMS\Type("string")
+     * @JMS\SerializedName("phone")
+     */
+    protected $phone;
+
+    /**
      * The payment data URL.
      *
      * @var string
@@ -516,6 +525,29 @@ class Customer
     public function setEmail($email)
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get the phone number of the customer.
+     *
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * Set the phone number of the customer.
+     *
+     * @param string $phone The phone number to set.
+     * @return $this
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
 
         return $this;
     }
