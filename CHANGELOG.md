@@ -2,6 +2,11 @@
 
 All Notable changes to `speicher210/fastbill-api` will be documented in this file.
 
+## [1.5.6] - 2016-08-24
+
+### Fixed
+- Use the customer hash for article checkout URL.
+
 ## [1.5.5] - 2016-07-06
 
 ### Added
